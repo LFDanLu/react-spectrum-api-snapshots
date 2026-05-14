@@ -1,0 +1,3024 @@
+=== NEW API CHANGES THIS WEEK (not in last week's diff) ===
++  selectionMode?: CalendarSelectionMode = 'single'
+-  visibleDuration?: DateDuration = {months: 1}
++  visibleDuration?: DateDuration = { months: 1 }
+#### /react-aria-components:CalendarGrid
+```diff
+ CalendarGrid {
+   children?: ReactElement | Array<ReactElement> | (CalendarDate) => ReactElement
+   className?: string = 'react-aria-CalendarGrid'
+   offset?: DateDuration
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, undefined>
+   style?: CSSProperties
+-  weekdayStyle?: 'narrow' | 'short' | 'long' = "narrow"
++  weekdayStyle?: 'narrow' | 'short' | 'long' = 'narrow'
+ }
+```
+
+
+-  visibleDuration?: DateDuration = {months: 1}
++  visibleDuration?: DateDuration = { months: 1 }
+#### /react-aria-components:GridList
+```diff
+ GridList <T extends {}> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children?: ReactNode | ({}) => ReactNode
+   className?: ClassNameOrFunction<GridListRenderProps> = 'react-aria-GridList'
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   disallowTypeAhead?: boolean = false
+   dragAndDropHooks?: DragAndDropHooks<NoInfer<{}>>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   id?: string
+   items?: Iterable<T>
+   keyboardNavigationBehavior?: 'arrow' | 'tab' = 'arrow'
+   layout?: 'stack' | 'grid' = 'stack'
+   onAction?: (Key) => void
+   onSelectionChange?: (Selection) => void
+   orientation?: Orientation = 'vertical'
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, GridListRenderProps>
+   renderEmptyState?: (GridListRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+-  selectionBehavior?: SelectionBehavior = "toggle"
++  selectionBehavior?: SelectionBehavior = 'toggle'
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   style?: StyleOrFunction<GridListRenderProps>
+```
+
+
+#### /react-aria-components:ListBox
+```diff
+ ListBox <T extends {}> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children?: ReactNode | ({}) => ReactNode
+   className?: ClassNameOrFunction<ListBoxRenderProps> = 'react-aria-ListBox'
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   dragAndDropHooks?: DragAndDropHooks<NoInfer<{}>>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   id?: string
+   items?: Iterable<T>
+   layout?: 'stack' | 'grid' = 'stack'
+   onAction?: (Key) => void
+   onBlur?: (FocusEvent<Target>) => void
+   onFocus?: (FocusEvent<Target>) => void
+   onFocusChange?: (boolean) => void
+   onSelectionChange?: (Selection) => void
+   orientation?: Orientation = 'vertical'
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, ListBoxRenderProps>
+   renderEmptyState?: (ListBoxRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+-  selectionBehavior?: SelectionBehavior = "toggle"
++  selectionBehavior?: SelectionBehavior = 'toggle'
+   selectionMode?: SelectionMode
+   shouldFocusOnHover?: boolean
+   shouldFocusWrap?: boolean
+   shouldSelectOnPressUp?: boolean
+   style?: StyleOrFunction<ListBoxRenderProps>
+ }
+```
+
+
+#### /react-aria-components:Meter
+```diff
+ Meter {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children?: ChildrenOrFunction<MeterRenderProps>
+   className?: ClassNameOrFunction<MeterRenderProps> = 'react-aria-Meter'
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   id?: string
+   maxValue?: number = 100
+   minValue?: number = 0
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, MeterRenderProps>
+   style?: StyleOrFunction<MeterRenderProps>
+   value?: number = 0
+   valueLabel?: ReactNode
+ }
+```
+
+
+#### /react-aria-components:ProgressBar
+```diff
+ ProgressBar {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children?: ChildrenOrFunction<ProgressBarRenderProps>
+   className?: ClassNameOrFunction<ProgressBarRenderProps> = 'react-aria-ProgressBar'
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   id?: string
+   isIndeterminate?: boolean
+   maxValue?: number = 100
+   minValue?: number = 0
+   slot?: string | null
+   style?: StyleOrFunction<ProgressBarRenderProps>
+   value?: number = 0
+   valueLabel?: ReactNode
+ }
+```
+
+
+#### /react-aria-components:Table
+```diff
+ Table {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children?: ReactNode
+   className?: ClassNameOrFunction<TableRenderProps> = 'react-aria-Table'
+   defaultExpandedKeys?: Iterable<Key>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   dragAndDropHooks?: DragAndDropHooks
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   expandedKeys?: Iterable<Key>
+   onExpandedChange?: (Set<Key>) => any
+   onRowAction?: (Key) => void
+   onSelectionChange?: (Selection) => void
+   onSortChange?: (SortDescriptor) => any
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, TableRenderProps>
+   selectedKeys?: 'all' | Iterable<Key>
+-  selectionBehavior?: SelectionBehavior = "toggle"
++  selectionBehavior?: SelectionBehavior = 'toggle'
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   sortDescriptor?: SortDescriptor
+   treeColumn?: Key
+ }
+```
+
+
+#### /react-aria-components:UNSTABLE_ToastList
+```diff
+ UNSTABLE_ToastList <T> {
+   aria-describedby?: string
+   aria-details?: string
+-  aria-label?: string = "Notifications"
++  aria-label?: string = 'Notifications'
+   aria-labelledby?: string
+   children: ({
+     toast: QueuedToast<T>
+ }) => ReactElement
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, ToastRegionRenderProps<T>>
+   style?: StyleOrFunction<ToastRegionRenderProps<T>>
+ }
+```
+
+
+#### /react-aria-components:UNSTABLE_ToastRegion
+```diff
+ UNSTABLE_ToastRegion <T> {
+   aria-describedby?: string
+   aria-details?: string
+-  aria-label?: string = "Notifications"
++  aria-label?: string = 'Notifications'
+   aria-labelledby?: string
+   children: ReactNode | ({
+     toast: QueuedToast<T>
+ }) => ReactElement
+   queue: ToastQueue<T>
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, ToastRegionRenderProps<T>>
+   style?: StyleOrFunction<ToastRegionRenderProps<T>>
+ }
+```
+
+
+#### /react-aria-components:Tree
+```diff
+ Tree <T extends {}> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children?: ReactNode | ({}) => ReactNode
+   className?: ClassNameOrFunction<TreeRenderProps> = 'react-aria-Tree'
+   defaultExpandedKeys?: Iterable<Key>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+   disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   dragAndDropHooks?: DragAndDropHooks<NoInfer<{}>>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   expandedKeys?: Iterable<Key>
+   id?: string
+   items?: Iterable<T>
+   onAction?: (Key) => void
+   onExpandedChange?: (Set<Key>) => any
+   onSelectionChange?: (Selection) => void
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, TreeRenderProps>
+   renderEmptyState?: (TreeEmptyStateRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+-  selectionBehavior?: SelectionBehavior = "toggle"
++  selectionBehavior?: SelectionBehavior = 'toggle'
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   style?: StyleOrFunction<TreeRenderProps>
+```
+
+
++  selectionMode?: CalendarSelectionMode = 'single'
+-  visibleDuration?: DateDuration = {months: 1}
++  visibleDuration?: DateDuration = { months: 1 }
+#### /react-aria-components:CalendarGridProps
+```diff
+ CalendarGridProps {
+   children?: ReactElement | Array<ReactElement> | (CalendarDate) => ReactElement
+   className?: string = 'react-aria-CalendarGrid'
+   offset?: DateDuration
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, undefined>
+   style?: CSSProperties
+-  weekdayStyle?: 'narrow' | 'short' | 'long' = "narrow"
++  weekdayStyle?: 'narrow' | 'short' | 'long' = 'narrow'
+ }
+```
+
+
+-  visibleDuration?: DateDuration = {months: 1}
++  visibleDuration?: DateDuration = { months: 1 }
+#### /react-aria-components:GridListProps
+```diff
+ GridListProps <T> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children?: ReactNode | (T) => ReactNode
+   className?: ClassNameOrFunction<GridListRenderProps> = 'react-aria-GridList'
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   disallowTypeAhead?: boolean = false
+   dragAndDropHooks?: DragAndDropHooks<NoInfer<T>>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   id?: string
+   items?: Iterable<T>
+   keyboardNavigationBehavior?: 'arrow' | 'tab' = 'arrow'
+   layout?: 'stack' | 'grid' = 'stack'
+   onAction?: (Key) => void
+   onSelectionChange?: (Selection) => void
+   orientation?: Orientation = 'vertical'
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, GridListRenderProps>
+   renderEmptyState?: (GridListRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+-  selectionBehavior?: SelectionBehavior = "toggle"
++  selectionBehavior?: SelectionBehavior = 'toggle'
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   style?: StyleOrFunction<GridListRenderProps>
+```
+
+
+#### /react-aria-components:ListBoxProps
+```diff
+ ListBoxProps <T> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children?: ReactNode | (T) => ReactNode
+   className?: ClassNameOrFunction<ListBoxRenderProps> = 'react-aria-ListBox'
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   dragAndDropHooks?: DragAndDropHooks<NoInfer<T>>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   id?: string
+   items?: Iterable<T>
+   layout?: 'stack' | 'grid' = 'stack'
+   onAction?: (Key) => void
+   onBlur?: (FocusEvent<Target>) => void
+   onFocus?: (FocusEvent<Target>) => void
+   onFocusChange?: (boolean) => void
+   onSelectionChange?: (Selection) => void
+   orientation?: Orientation = 'vertical'
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, ListBoxRenderProps>
+   renderEmptyState?: (ListBoxRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+-  selectionBehavior?: SelectionBehavior = "toggle"
++  selectionBehavior?: SelectionBehavior = 'toggle'
+   selectionMode?: SelectionMode
+   shouldFocusOnHover?: boolean
+   shouldFocusWrap?: boolean
+   shouldSelectOnPressUp?: boolean
+   style?: StyleOrFunction<ListBoxRenderProps>
+ }
+```
+
+
+#### /react-aria-components:MeterProps
+```diff
+ MeterProps {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children?: ChildrenOrFunction<MeterRenderProps>
+   className?: ClassNameOrFunction<MeterRenderProps> = 'react-aria-Meter'
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   id?: string
+   maxValue?: number = 100
+   minValue?: number = 0
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, MeterRenderProps>
+   style?: StyleOrFunction<MeterRenderProps>
+   value?: number = 0
+   valueLabel?: ReactNode
+ }
+```
+
+
+#### /react-aria-components:ProgressBarProps
+```diff
+ ProgressBarProps {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children?: ChildrenOrFunction<ProgressBarRenderProps>
+   className?: ClassNameOrFunction<ProgressBarRenderProps> = 'react-aria-ProgressBar'
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   id?: string
+   isIndeterminate?: boolean
+   maxValue?: number = 100
+   minValue?: number = 0
+   slot?: string | null
+   style?: StyleOrFunction<ProgressBarRenderProps>
+   value?: number = 0
+   valueLabel?: ReactNode
+ }
+```
+
+
+#### /react-aria-components:TableProps
+```diff
+ TableProps {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children?: ReactNode
+   className?: ClassNameOrFunction<TableRenderProps> = 'react-aria-Table'
+   defaultExpandedKeys?: Iterable<Key>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   dragAndDropHooks?: DragAndDropHooks
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   expandedKeys?: Iterable<Key>
+   onExpandedChange?: (Set<Key>) => any
+   onRowAction?: (Key) => void
+   onSelectionChange?: (Selection) => void
+   onSortChange?: (SortDescriptor) => any
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, TableRenderProps>
+   selectedKeys?: 'all' | Iterable<Key>
+-  selectionBehavior?: SelectionBehavior = "toggle"
++  selectionBehavior?: SelectionBehavior = 'toggle'
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   sortDescriptor?: SortDescriptor
+   treeColumn?: Key
+ }
+```
+
+
+#### /react-aria-components:ToastRegionProps
+```diff
+ ToastRegionProps <T> {
+   aria-describedby?: string
+   aria-details?: string
+-  aria-label?: string = "Notifications"
++  aria-label?: string = 'Notifications'
+   aria-labelledby?: string
+   children: ReactNode | ({
+     toast: QueuedToast<T>
+ }) => ReactElement
+   queue: ToastQueue<T>
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, ToastRegionRenderProps<T>>
+   style?: StyleOrFunction<ToastRegionRenderProps<T>>
+ }
+```
+
+
+#### /react-aria-components:ToastListProps
+```diff
+ ToastListProps <T> {
+   aria-describedby?: string
+   aria-details?: string
+-  aria-label?: string = "Notifications"
++  aria-label?: string = 'Notifications'
+   aria-labelledby?: string
+   children: ({
+     toast: QueuedToast<T>
+ }) => ReactElement
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, ToastRegionRenderProps<T>>
+   style?: StyleOrFunction<ToastRegionRenderProps<T>>
+ }
+```
+
+
+#### /react-aria-components:TreeProps
+```diff
+ TreeProps <T> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children?: ReactNode | (T) => ReactNode
+   className?: ClassNameOrFunction<TreeRenderProps> = 'react-aria-Tree'
+   defaultExpandedKeys?: Iterable<Key>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+   disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   dragAndDropHooks?: DragAndDropHooks<NoInfer<T>>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   expandedKeys?: Iterable<Key>
+   id?: string
+   items?: Iterable<T>
+   onAction?: (Key) => void
+   onExpandedChange?: (Set<Key>) => any
+   onSelectionChange?: (Selection) => void
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, TreeRenderProps>
+   renderEmptyState?: (TreeEmptyStateRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+-  selectionBehavior?: SelectionBehavior = "toggle"
++  selectionBehavior?: SelectionBehavior = 'toggle'
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   style?: StyleOrFunction<TreeRenderProps>
+```
+
+
+#### /react-aria-components:ColorSliderState
+```diff
+ ColorSliderState {
+   decrementThumb: (number, number) => void
+   defaultValues: Array<number>
+   focusedThumb: number | undefined
+   getDisplayColor: () => Color
+-  getFormattedValue: (number) => string
++  getFormattedValue: (number | Array<number>) => string
+   getPercentValue: (number) => number
+   getThumbMaxValue: (number) => number
+   getThumbMinValue: (number) => number
+   getThumbPercent: (number) => number
+   getThumbValueLabel: (number) => string
+   getValuePercent: (number) => number
+   incrementThumb: (number, number) => void
+   isDisabled: boolean
+   isDragging: boolean
+   isThumbDragging: (number) => boolean
+   isThumbEditable: (number) => boolean
+   orientation: Orientation
+   pageSize: number
+   setFocusedThumb: (number | undefined) => void
+   setThumbDragging: (number, boolean) => void
+   setThumbEditable: (number, boolean) => void
+   setThumbPercent: (number, number) => void
+   setThumbValue: (number, number) => void
+   setValue: (string | Color) => void
+   step: number
+   value: Color
+   values: Array<number>
+ }
+```
+
+
+#### /react-aria-components:SliderState
+```diff
+ SliderState {
+   decrementThumb: (number, number) => void
+   defaultValues: Array<number>
+   focusedThumb: number | undefined
+-  getFormattedValue: (number) => string
++  getFormattedValue: (number | Array<number>) => string
+   getPercentValue: (number) => number
+   getThumbMaxValue: (number) => number
+   getThumbMinValue: (number) => number
+   getThumbPercent: (number) => number
+   getThumbValueLabel: (number) => string
+   getValuePercent: (number) => number
+   incrementThumb: (number, number) => void
+   isDisabled: boolean
+   isThumbDragging: (number) => boolean
+   isThumbEditable: (number) => boolean
+   orientation: Orientation
+   pageSize: number
+   setFocusedThumb: (number | undefined) => void
+   setThumbDragging: (number, boolean) => void
+   setThumbEditable: (number, boolean) => void
+   setThumbPercent: (number, number) => void
+   setThumbValue: (number, number) => void
+   step: number
+   values: Array<number>
+ }
+```
+
+
+#### /react-aria-components:SliderFill
+```diff
++SliderFill {
++  children?: ChildrenOrFunction<SliderFillRenderProps>
++  className?: ClassNameOrFunction<SliderFillRenderProps> = 'react-aria-SliderFill'
++  offset?: number = 0
++  onHoverChange?: (boolean) => void
++  onHoverEnd?: (HoverEvent) => void
++  onHoverStart?: (HoverEvent) => void
++  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, SliderFillRenderProps>
++  style?: StyleOrFunction<SliderFillRenderProps>
++}
+```
+
+
+#### /react-aria-components:SliderFillContext
+```diff
++SliderFillContext {
++  UNTYPED
++}
+```
+
+
+#### /react-aria-components:SliderFillProps
+```diff
++SliderFillProps {
++  children?: ChildrenOrFunction<SliderFillRenderProps>
++  className?: ClassNameOrFunction<SliderFillRenderProps> = 'react-aria-SliderFill'
++  offset?: number = 0
++  onHoverChange?: (boolean) => void
++  onHoverEnd?: (HoverEvent) => void
++  onHoverStart?: (HoverEvent) => void
++  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, SliderFillRenderProps>
++  style?: StyleOrFunction<SliderFillRenderProps>
++}
+```
+
+
+#### /react-aria-components:SliderFillRenderProps
+```diff
++SliderFillRenderProps {
++  isDisabled: boolean
++  isHovered: boolean
++  orientation: Orientation
++  state: SliderState
++}
+```
+
+
++  selectionMode?: CalendarSelectionMode = 'single'
+#### /@react-aria/calendar:AriaCalendarGridProps
+```diff
+ AriaCalendarGridProps {
+   endDate?: CalendarDate
+   firstDayOfWeek?: 'sun' | 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat'
+   startDate?: CalendarDate
+-  weekdayStyle?: 'narrow' | 'short' | 'long' = "narrow"
++  weekdayStyle?: 'narrow' | 'short' | 'long' = 'narrow'
+ }
+```
+
+
++  selectionMode?: CalendarSelectionMode = 'single'
+### @react-aria/gridlist
+
+#### /@react-aria/gridlist:AriaGridListOptions
+```diff
+ AriaGridListOptions <T> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   disallowTypeAhead?: boolean = false
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   isVirtualized?: boolean
+   items?: Iterable<T>
+   keyboardDelegate?: KeyboardDelegate
+   keyboardNavigationBehavior?: 'arrow' | 'tab' = 'arrow'
+   layoutDelegate?: LayoutDelegate
+   linkBehavior?: 'action' | 'selection' | 'override' = 'action'
+   onAction?: (Key) => void
+   onSelectionChange?: (Selection) => void
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   shouldFocusWrap?: boolean = false
+   shouldSelectOnPressUp?: boolean
+ }
+```
+
+
+#### /@react-aria/gridlist:AriaGridListProps
+```diff
+ AriaGridListProps <T> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children: CollectionChildren<T>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   id?: string
+   keyboardNavigationBehavior?: 'arrow' | 'tab' = 'arrow'
+   onAction?: (Key) => void
+   onSelectionChange?: (Selection) => void
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+ }
+```
+
+
+#### /@react-aria/gridlist:GridListProps
+```diff
+ GridListProps <T> {
+   autoFocus?: boolean | FocusStrategy
+   children: CollectionChildren<T>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   items?: Iterable<T>
+   onAction?: (Key) => void
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+ }
+```
+
+-----------------------------------
+
+
+### @react-aria/meter
+
+#### /@react-aria/meter:AriaMeterProps
+```diff
+ AriaMeterProps {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   id?: string
+   label?: ReactNode
+   maxValue?: number = 100
+   minValue?: number = 0
+   valueLabel?: ReactNode
+ }
+```
+
+-----------------------------------
+
+
+### @react-aria/progress
+
+#### /@react-aria/progress:ProgressBarProps
+```diff
+ ProgressBarProps {
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   isIndeterminate?: boolean
+   label?: ReactNode
+   maxValue?: number = 100
+   minValue?: number = 0
+   valueLabel?: ReactNode
+ }
+```
+
+
+#### /@react-aria/progress:ProgressBarBaseProps
+```diff
+ ProgressBarBaseProps {
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   label?: ReactNode
+   maxValue?: number = 100
+   minValue?: number = 0
+   value?: number = 0
+ }
+```
+
+
+#### /@react-aria/progress:AriaProgressBarBaseProps
+```diff
+ AriaProgressBarBaseProps {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   id?: string
+   label?: ReactNode
+   maxValue?: number = 100
+   minValue?: number = 0
+   valueLabel?: ReactNode
+ }
+```
+
+
+#### /@react-aria/progress:AriaProgressBarProps
+```diff
+ AriaProgressBarProps {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   id?: string
+   isIndeterminate?: boolean
+   label?: ReactNode
+   maxValue?: number = 100
+   value?: number = 0
+   valueLabel?: ReactNode
+ }
+```
+
+-----------------------------------
+
+
+### @react-aria/toast
+
+#### /@react-aria/toast:AriaToastRegionProps
+```diff
+ AriaToastRegionProps {
+   aria-describedby?: string
+   aria-details?: string
+-  aria-label?: string = "Notifications"
++  aria-label?: string = 'Notifications'
+   aria-labelledby?: string
+ }
+```
+
+-----------------------------------
+
+
+### @react-aria/tree
+
+#### /@react-aria/tree:AriaTreeOptions
+```diff
+ AriaTreeOptions <T> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   disallowTypeAhead?: boolean = false
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   isVirtualized?: boolean
+   items?: Iterable<T>
+   keyboardDelegate?: KeyboardDelegate
+   keyboardNavigationBehavior?: 'arrow' | 'tab' = 'arrow'
+   layoutDelegate?: LayoutDelegate
+   linkBehavior?: 'action' | 'selection' | 'override' = 'action'
+   onAction?: (Key) => void
+   onSelectionChange?: (Selection) => void
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+ }
+```
+
+
+#### /@react-aria/tree:AriaTreeProps
+```diff
+ AriaTreeProps <T> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children: CollectionChildren<T>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   id?: string
+   onAction?: (Key) => void
+   onSelectionChange?: (Selection) => void
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+ }
+```
+
+
+#### /@react-aria/tree:TreeProps
+```diff
+ TreeProps <T> {
+   autoFocus?: boolean | FocusStrategy
+   children: CollectionChildren<T>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   items?: Iterable<T>
+   onAction?: (Key) => void
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+ }
+```
+
+-----------------------------------
+
+
++  selectionMode?: CalendarSelectionMode = 'single'
++  selectionMode?: CalendarSelectionMode = 'single'
+### @react-spectrum/card
+
+#### /@react-spectrum/card:GalleryLayout
+```diff
+ GalleryLayout <T> {
+   _distributeWidths: (Array<number>) => boolean
+   _findClosest: (Rect, Rect) => LayoutInfo | null
+   _findClosestLayoutInfo: (Rect, Rect) => LayoutInfo | null
+   buildCollection: () => void
+   collection: GridCollection<T>
+   constructor: (GalleryLayoutOptions) => void
+   direction: Direction
+   disabledKeys: Set<Key>
+   getContentSize: () => number
+   getDropTargetLayoutInfo: (ItemDropTarget) => LayoutInfo
+   getFirstKey: () => Node<T> | undefined
+   getKeyAbove: (Key) => Node<T> | undefined
+   getKeyBelow: (Key) => Node<T> | undefined
+   getKeyForSearch: (string, Key) => Node<T> | undefined | null
+   getKeyLeftOf: (Key) => Node<T> | undefined
+   getKeyPageAbove: (Key) => Node<T> | undefined
+   getKeyPageBelow: (Key) => Node<T> | undefined
+   getKeyRightOf: (Key) => Node<T> | undefined
+   getLastKey: () => Node<T> | undefined
+   getLayoutInfo: (Key) => LayoutInfo
+   getVisibleLayoutInfos: (Rect, any) => Array<LayoutInfo>
+   isLoading: boolean
+   isVisible: (LayoutInfo, Rect, boolean) => boolean
+   itemPadding: number
+   layoutType: string
+   margin: number
+   scale: Scale
+   shouldInvalidate: (Rect, Rect) => boolean
+-  shouldInvalidateLayoutOptions: (O, O) => boolean
++  shouldInvalidateLayoutOptions: (CardViewLayoutOptions, CardViewLayoutOptions) => boolean
+   update: (InvalidationContext<CardViewLayoutOptions>) => void
+   updateItemSize: (Key, Size) => boolean
+   virtualizer: Virtualizer<{}, any> | null
+ }
+```
+
+
+#### /@react-spectrum/card:GridLayout
+```diff
+ GridLayout <T> {
+   _findClosest: (Rect, Rect) => LayoutInfo | null
+   _findClosestLayoutInfo: (Rect, Rect) => LayoutInfo | null
+   buildChild: (Node<T>, number, number) => LayoutInfo
+   buildCollection: () => void
+   cardOrientation: Orientation
+   collection: GridCollection<T>
+   constructor: (GridLayoutOptions) => void
+   direction: Direction
+   disabledKeys: Set<Key>
+   getContentSize: () => number
+   getDropTargetLayoutInfo: (ItemDropTarget) => LayoutInfo
+   getFirstKey: () => Node<T> | undefined
+   getIndexAtPoint: (number, number, any) => number
+   getKeyAbove: (Key) => Node<T> | undefined | null
+   getKeyBelow: (Key) => Node<T> | undefined | null
+   getKeyForSearch: (string, Key) => Node<T> | undefined | null
+   getKeyLeftOf: (Key) => Node<T> | undefined
+   getKeyPageAbove: (Key) => Node<T> | undefined
+   getKeyPageBelow: (Key) => Node<T> | undefined
+   getKeyRightOf: (Key) => Node<T> | undefined
+   getLastKey: () => Node<T> | undefined
+   getLayoutInfo: (Key) => LayoutInfo
+   getVisibleLayoutInfos: (Rect, any) => Array<LayoutInfo>
+   isLoading: boolean
+   isVisible: (LayoutInfo, Rect, boolean) => boolean
+   itemPadding: number
+   layoutType: string
+   margin: number
+   scale: Scale
+   shouldInvalidate: (Rect, Rect) => boolean
+-  shouldInvalidateLayoutOptions: (O, O) => boolean
++  shouldInvalidateLayoutOptions: (CardViewLayoutOptions, CardViewLayoutOptions) => boolean
+   update: (InvalidationContext<CardViewLayoutOptions>) => void
+   updateItemSize: (Key, Size) => boolean
+   virtualizer: Virtualizer<{}, any> | null
+ }
+```
+
+
+#### /@react-spectrum/card:WaterfallLayout
+```diff
+ WaterfallLayout <T> {
+   _findClosest: (Rect, Rect) => LayoutInfo | null
+   _findClosestLayoutInfo: (Rect, Rect) => LayoutInfo | null
+   buildCollection: (InvalidationContext) => void
+   collection: GridCollection<T>
+   constructor: (WaterfallLayoutOptions) => void
+   direction: Direction
+   disabledKeys: Set<Key>
+   getClosestLeft: (Key) => Node<T> | undefined
+   getClosestRight: (Key) => Node<T> | undefined
+   getContentSize: () => number
+   getDropTargetLayoutInfo: (ItemDropTarget) => LayoutInfo
+   getFirstKey: () => Node<T> | undefined
+   getKeyAbove: (Key) => Node<T> | undefined
+   getKeyBelow: (Key) => Node<T> | undefined
+   getKeyForSearch: (string, Key) => Node<T> | undefined | null
+   getKeyLeftOf: (Key) => Node<T> | undefined
+   getKeyPageAbove: (Key) => Node<T> | undefined
+   getKeyPageBelow: (Key) => Node<T> | undefined
+   getKeyRightOf: (Key) => Node<T> | undefined
+   getLastKey: () => Node<T> | undefined
+   getLayoutInfo: (Key) => LayoutInfo
+   getNextColumnIndex: (Array<number>) => number
+   getVisibleLayoutInfos: (Rect, any) => Array<LayoutInfo>
+   isLoading: boolean
+   isVisible: (LayoutInfo, Rect, boolean) => boolean
+   layoutType: string
+   margin: number
+   scale: Scale
+   shouldInvalidate: (Rect, Rect) => boolean
+-  shouldInvalidateLayoutOptions: (O, O) => boolean
++  shouldInvalidateLayoutOptions: (CardViewLayoutOptions, CardViewLayoutOptions) => boolean
+   update: (InvalidationContext<CardViewLayoutOptions>) => void
+   updateItemSize: (Key, Size) => number
+   virtualizer: Virtualizer<{}, any> | null
+ }
+```
+
+-----------------------------------
+
+
+#### /@react-spectrum/color:ColorSwatch
+```diff
+ ColorSwatch {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   bottom?: Responsive<DimensionValue>
+   color?: string | Color
+   colorName?: string
+   end?: Responsive<DimensionValue>
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRow?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isHidden?: Responsive<boolean>
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   left?: Responsive<DimensionValue>
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minWidth?: Responsive<DimensionValue>
+   order?: Responsive<number>
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   right?: Responsive<DimensionValue>
+-  rounding?: 'default' | 'none' | 'full' = "default"
+-  size?: 'XS' | 'S' | 'M' | 'L' = "M"
++  rounding?: 'default' | 'none' | 'full' = 'default'
++  size?: 'XS' | 'S' | 'M' | 'L' = 'M'
+   start?: Responsive<DimensionValue>
+   top?: Responsive<DimensionValue>
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+```
+
+
+#### /@react-spectrum/color:ColorPicker
+```diff
+ ColorPicker {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children?: ReactNode
+   defaultValue?: string | Color
+   label?: ReactNode
+   onChange?: (Color) => void
+-  rounding?: 'default' | 'none' | 'full' = "default"
+-  size?: 'XS' | 'S' | 'M' | 'L' = "M"
++  rounding?: 'default' | 'none' | 'full' = 'default'
++  size?: 'XS' | 'S' | 'M' | 'L' = 'M'
+   value?: string | Color
+ }
+```
+
+
+#### /@react-spectrum/color:ColorSwatchPicker
+```diff
+ ColorSwatchPicker {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   bottom?: Responsive<DimensionValue>
+   children: ReactNode
+   defaultValue?: string | Color
+-  density?: 'compact' | 'regular' | 'spacious' = "regular"
++  density?: 'compact' | 'regular' | 'spacious' = 'regular'
+   end?: Responsive<DimensionValue>
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRow?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   isHidden?: Responsive<boolean>
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   left?: Responsive<DimensionValue>
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minWidth?: Responsive<DimensionValue>
+   onChange?: (Color) => void
+   order?: Responsive<number>
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   right?: Responsive<DimensionValue>
+-  rounding?: 'none' | 'default' | 'full' = "none"
+-  size?: 'XS' | 'S' | 'M' | 'L' = "M"
++  rounding?: 'none' | 'default' | 'full' = 'none'
++  size?: 'XS' | 'S' | 'M' | 'L' = 'M'
+   start?: Responsive<DimensionValue>
+   top?: Responsive<DimensionValue>
+   value?: string | Color
+   width?: Responsive<DimensionValue>
+ }
+```
+
+
+
+#### /@react-spectrum/color:SpectrumColorSwatchProps
+```diff
+ SpectrumColorSwatchProps {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   bottom?: Responsive<DimensionValue>
+   color?: string | Color
+   colorName?: string
+   end?: Responsive<DimensionValue>
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRow?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isHidden?: Responsive<boolean>
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   left?: Responsive<DimensionValue>
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minWidth?: Responsive<DimensionValue>
+   order?: Responsive<number>
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   right?: Responsive<DimensionValue>
+-  rounding?: 'default' | 'none' | 'full' = "default"
+-  size?: 'XS' | 'S' | 'M' | 'L' = "M"
++  rounding?: 'default' | 'none' | 'full' = 'default'
++  size?: 'XS' | 'S' | 'M' | 'L' = 'M'
+   start?: Responsive<DimensionValue>
+   top?: Responsive<DimensionValue>
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+```
+
+
+#### /@react-spectrum/color:SpectrumColorPickerProps
+```diff
+ SpectrumColorPickerProps {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children?: ReactNode
+   defaultValue?: string | Color
+   label?: ReactNode
+   onChange?: (Color) => void
+-  rounding?: 'default' | 'none' | 'full' = "default"
+-  size?: 'XS' | 'S' | 'M' | 'L' = "M"
++  rounding?: 'default' | 'none' | 'full' = 'default'
++  size?: 'XS' | 'S' | 'M' | 'L' = 'M'
+   value?: string | Color
+ }
+```
+
+
+#### /@react-spectrum/color:SpectrumColorSwatchPickerProps
+```diff
+ SpectrumColorSwatchPickerProps {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   bottom?: Responsive<DimensionValue>
+   children: ReactNode
+   defaultValue?: string | Color
+-  density?: 'compact' | 'regular' | 'spacious' = "regular"
++  density?: 'compact' | 'regular' | 'spacious' = 'regular'
+   end?: Responsive<DimensionValue>
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRow?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   isHidden?: Responsive<boolean>
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   left?: Responsive<DimensionValue>
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minWidth?: Responsive<DimensionValue>
+   onChange?: (Color) => void
+   order?: Responsive<number>
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   right?: Responsive<DimensionValue>
+-  rounding?: 'none' | 'default' | 'full' = "none"
+-  size?: 'XS' | 'S' | 'M' | 'L' = "M"
++  rounding?: 'none' | 'default' | 'full' = 'none'
++  size?: 'XS' | 'S' | 'M' | 'L' = 'M'
+   start?: Responsive<DimensionValue>
+   top?: Responsive<DimensionValue>
+   value?: string | Color
+   width?: Responsive<DimensionValue>
+ }
+```
+
+### @react-spectrum/list
+
+#### /@react-spectrum/list:ListView
+```diff
+ ListView <T extends {}> {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   bottom?: Responsive<DimensionValue>
+   children: CollectionChildren<T>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   density?: 'compact' | 'regular' | 'spacious' = 'regular'
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   dragAndDropHooks?: DragAndDropHooks<NoInfer<{}>>['dragAndDropHooks']
+   end?: Responsive<DimensionValue>
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRow?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isHidden?: Responsive<boolean>
+   isQuiet?: boolean
+   items?: Iterable<T>
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   left?: Responsive<DimensionValue>
+   loadingState?: LoadingState
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minWidth?: Responsive<DimensionValue>
+   onAction?: (Key) => void
+   onLoadMore?: () => any
+   onSelectionChange?: (Selection) => void
+   order?: Responsive<number>
+   overflowMode?: 'truncate' | 'wrap' = 'truncate'
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   renderEmptyState?: () => JSX.Element
+   right?: Responsive<DimensionValue>
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   selectionStyle?: 'checkbox' | 'highlight'
+   shouldSelectOnPressUp?: boolean
+   start?: Responsive<DimensionValue>
+   top?: Responsive<DimensionValue>
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+ }
+```
+
+
+#### /@react-spectrum/list:SpectrumListViewProps
+```diff
+ SpectrumListViewProps <T> {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   bottom?: Responsive<DimensionValue>
+   children: CollectionChildren<T>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   density?: 'compact' | 'regular' | 'spacious' = 'regular'
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   dragAndDropHooks?: DragAndDropHooks<NoInfer<T>>['dragAndDropHooks']
+   end?: Responsive<DimensionValue>
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRow?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isHidden?: Responsive<boolean>
+   isQuiet?: boolean
+   items?: Iterable<T>
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   left?: Responsive<DimensionValue>
+   loadingState?: LoadingState
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minWidth?: Responsive<DimensionValue>
+   onAction?: (Key) => void
+   onLoadMore?: () => any
+   onSelectionChange?: (Selection) => void
+   order?: Responsive<number>
+   overflowMode?: 'truncate' | 'wrap' = 'truncate'
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   renderEmptyState?: () => JSX.Element
+   right?: Responsive<DimensionValue>
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   selectionStyle?: 'checkbox' | 'highlight'
+   shouldSelectOnPressUp?: boolean
+   start?: Responsive<DimensionValue>
+   top?: Responsive<DimensionValue>
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+ }
+```
+
+-----------------------------------
+
+
+### @react-spectrum/meter
+
+#### /@react-spectrum/meter:Meter
+```diff
+ Meter {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   bottom?: Responsive<DimensionValue>
+   end?: Responsive<DimensionValue>
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isHidden?: Responsive<boolean>
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   label?: ReactNode
+   labelPosition?: LabelPosition = 'top'
+   left?: Responsive<DimensionValue>
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxValue?: number = 100
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minValue?: number = 0
+   minWidth?: Responsive<DimensionValue>
+   order?: Responsive<number>
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   right?: Responsive<DimensionValue>
+   showValueLabel?: boolean
+   size?: 'S' | 'L' = 'L'
+   start?: Responsive<DimensionValue>
+   top?: Responsive<DimensionValue>
+   value?: number = 0
+   valueLabel?: ReactNode
+   variant?: 'informative' | 'positive' | 'warning' | 'critical' = 'informative'
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+ }
+```
+
+
+#### /@react-spectrum/meter:SpectrumMeterProps
+```diff
+ SpectrumMeterProps {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   bottom?: Responsive<DimensionValue>
+   end?: Responsive<DimensionValue>
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isHidden?: Responsive<boolean>
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   label?: ReactNode
+   labelPosition?: LabelPosition = 'top'
+   left?: Responsive<DimensionValue>
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxValue?: number = 100
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minValue?: number = 0
+   minWidth?: Responsive<DimensionValue>
+   order?: Responsive<number>
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   right?: Responsive<DimensionValue>
+   showValueLabel?: boolean
+   size?: 'S' | 'L' = 'L'
+   start?: Responsive<DimensionValue>
+   top?: Responsive<DimensionValue>
+   value?: number = 0
+   valueLabel?: ReactNode
+   variant?: 'informative' | 'positive' | 'warning' | 'critical' = 'informative'
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+ }
+```
+
+-----------------------------------
+
+
+### @react-spectrum/progress
+
+#### /@react-spectrum/progress:ProgressBar
+```diff
+ ProgressBar {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   bottom?: Responsive<DimensionValue>
+   end?: Responsive<DimensionValue>
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isHidden?: Responsive<boolean>
+   isIndeterminate?: boolean
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   label?: ReactNode
+   labelPosition?: LabelPosition = 'top'
+   left?: Responsive<DimensionValue>
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxValue?: number = 100
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minValue?: number = 0
+   minWidth?: Responsive<DimensionValue>
+   order?: Responsive<number>
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   right?: Responsive<DimensionValue>
+   showValueLabel?: boolean
+   size?: 'S' | 'L' = 'L'
+   start?: Responsive<DimensionValue>
+   staticColor?: 'white' | 'black'
+   top?: Responsive<DimensionValue>
+   value?: number = 0
+   valueLabel?: ReactNode
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+ }
+```
+
+
+#### /@react-spectrum/progress:ProgressBarBase
+```diff
+ ProgressBarBase {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   barClassName?: string
+   barProps?: HTMLAttributes<HTMLDivElement>
+   bottom?: Responsive<DimensionValue>
+   end?: Responsive<DimensionValue>
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isHidden?: Responsive<boolean>
+   isIndeterminate?: boolean
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   label?: ReactNode
+   labelPosition?: LabelPosition = 'top'
+   labelProps?: HTMLAttributes<HTMLLabelElement>
+   left?: Responsive<DimensionValue>
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxValue?: number = 100
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minValue?: number = 0
+   minWidth?: Responsive<DimensionValue>
+   order?: Responsive<number>
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   right?: Responsive<DimensionValue>
+   showValueLabel?: boolean
+   size?: 'S' | 'L' = 'L'
+   start?: Responsive<DimensionValue>
+   top?: Responsive<DimensionValue>
+   value?: number = 0
+   valueLabel?: ReactNode
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+ }
+```
+
+
+#### /@react-spectrum/progress:SpectrumProgressBarBaseProps
+```diff
+ SpectrumProgressBarBaseProps {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   bottom?: Responsive<DimensionValue>
+   end?: Responsive<DimensionValue>
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isHidden?: Responsive<boolean>
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   label?: ReactNode
+   labelPosition?: LabelPosition = 'top'
+   left?: Responsive<DimensionValue>
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxValue?: number = 100
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minValue?: number = 0
+   minWidth?: Responsive<DimensionValue>
+   order?: Responsive<number>
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   right?: Responsive<DimensionValue>
+   showValueLabel?: boolean
+   size?: 'S' | 'L' = 'L'
+   start?: Responsive<DimensionValue>
+   top?: Responsive<DimensionValue>
+   value?: number = 0
+   valueLabel?: ReactNode
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+ }
+```
+
+
+#### /@react-spectrum/progress:SpectrumProgressBarProps
+```diff
+ SpectrumProgressBarProps {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   bottom?: Responsive<DimensionValue>
+   end?: Responsive<DimensionValue>
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isHidden?: Responsive<boolean>
+   isIndeterminate?: boolean
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   label?: ReactNode
+   labelPosition?: LabelPosition = 'top'
+   left?: Responsive<DimensionValue>
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxValue?: number = 100
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minValue?: number = 0
+   minWidth?: Responsive<DimensionValue>
+   order?: Responsive<number>
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   right?: Responsive<DimensionValue>
+   showValueLabel?: boolean
+   size?: 'S' | 'L' = 'L'
+   start?: Responsive<DimensionValue>
+   staticColor?: 'white' | 'black'
+   top?: Responsive<DimensionValue>
+   value?: number = 0
+   valueLabel?: ReactNode
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+ }
+```
+
+-----------------------------------
+
+
+### @react-spectrum/provider
+
+#### /@react-spectrum/provider:Provider
+```diff
+ Provider {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   bottom?: Responsive<DimensionValue>
+-  breakpoints?: Breakpoints = {S:380,M:768,L:1024}
++  breakpoints?: Breakpoints = { S: 380, M: 768, L: 1024 }
+   children: ReactNode
+   colorScheme?: ColorScheme
+   defaultColorScheme?: ColorScheme = 'light'
+   end?: Responsive<DimensionValue>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRow?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isDisabled?: boolean
+   isEmphasized?: boolean
+   isHidden?: Responsive<boolean>
+   isQuiet?: boolean
+   isReadOnly?: boolean
+   isRequired?: boolean
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   left?: Responsive<DimensionValue>
+   locale?: string = 'en-US'
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minWidth?: Responsive<DimensionValue>
+   order?: Responsive<number>
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   right?: Responsive<DimensionValue>
+   router?: Router
+   scale?: Scale
+   start?: Responsive<DimensionValue>
+   theme?: Theme
+   top?: Responsive<DimensionValue>
+   validationState?: ValidationState
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+ }
+```
+
+
+#### /@react-spectrum/provider:ProviderProps
+```diff
+ ProviderProps {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   bottom?: Responsive<DimensionValue>
+-  breakpoints?: Breakpoints = {S:380,M:768,L:1024}
++  breakpoints?: Breakpoints = { S: 380, M: 768, L: 1024 }
+   children: ReactNode
+   colorScheme?: ColorScheme
+   defaultColorScheme?: ColorScheme = 'light'
+   end?: Responsive<DimensionValue>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRow?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isDisabled?: boolean
+   isEmphasized?: boolean
+   isHidden?: Responsive<boolean>
+   isQuiet?: boolean
+   isReadOnly?: boolean
+   isRequired?: boolean
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   left?: Responsive<DimensionValue>
+   locale?: string = 'en-US'
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minWidth?: Responsive<DimensionValue>
+   order?: Responsive<number>
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   right?: Responsive<DimensionValue>
+   router?: Router
+   scale?: Scale
+   start?: Responsive<DimensionValue>
+   theme?: Theme
+   top?: Responsive<DimensionValue>
+   validationState?: ValidationState
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+ }
+```
+
+-----------------------------------
+
+
+#### /@react-spectrum/s2:ActionButtonGroup
+```diff
+ ActionButtonGroup {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children: ReactNode
+-  density?: 'compact' | 'regular' = "regular"
++  density?: 'compact' | 'regular' = 'regular'
+   isDisabled?: boolean
+   isJustified?: boolean
+   isQuiet?: boolean
+   orientation?: 'horizontal' | 'vertical' = 'horizontal'
+-  size?: 'XS' | 'S' | 'M' | 'L' | 'XL' = "M"
++  size?: 'XS' | 'S' | 'M' | 'L' | 'XL' = 'M'
+   slot?: string | null
+   staticColor?: 'white' | 'black' | 'auto'
+   styles?: StylesPropWithHeight
+ }
+```
+
+
++  selectionMode?: CalendarSelectionMode = 'single'
+#### /@react-spectrum/s2:CardView
+```diff
+ CardView <T extends {}> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children?: ReactNode | (T) => ReactNode
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   density?: 'compact' | 'regular' | 'spacious' = 'regular'
+   dependencies?: ReadonlyArray<any>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   disallowTypeAhead?: boolean = false
+   dragAndDropHooks?: DragAndDropHooks<NoInfer<T>>
+   id?: string
+   items?: Iterable<T>
+   layout?: 'grid' | 'waterfall' = 'grid'
+   loadingState?: LoadingState
+   onAction?: (Key) => void
+   onLoadMore?: () => void
+   onSelectionChange?: (Selection) => void
+   orientation?: Orientation = 'vertical'
+   renderActionBar?: ('all' | Set<Key>) => ReactElement
+   renderEmptyState?: (GridListRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   selectionStyle?: 'checkbox' | 'highlight' = 'checkbox'
+   shouldSelectOnPressUp?: boolean
+   size?: 'XS' | 'S' | 'M' | 'L' | 'XL' = 'M'
+   slot?: string | null
+   styles?: StylesPropWithHeight
+   variant?: 'primary' | 'secondary' | 'tertiary' | 'quiet' = 'primary'
+ }
+```
+
+
++  prefix?: ReactNode
+   validate?: (Color | null) => ValidationError | boolean | null | undefined
+#### /@react-spectrum/s2:ComboBox
+```diff
+ ComboBox <T extends {}> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   align?: 'start' | 'end' = 'start'
+   allowsCustomValue?: boolean
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean
+   children: ReactNode | ({}) => ReactNode
+   contextualHelp?: ReactNode
+   defaultInputValue?: string
+   defaultItems?: Iterable<T>
+   defaultSelectedKey?: Key | null
+   dependencies?: ReadonlyArray<any>
+   description?: ReactNode
+   direction?: 'bottom' | 'top' = 'bottom'
+   disabledKeys?: Iterable<Key>
+   errorMessage?: ReactNode | (ValidationResult) => ReactNode
+   form?: string
+   formValue?: 'text' | 'key' = 'key'
+   id?: string
+   inputValue?: string
+   isDisabled?: boolean
+   isInvalid?: boolean
+   isReadOnly?: boolean
+   isRequired?: boolean
+   items?: Iterable<T>
+   label?: ReactNode
+   labelAlign?: Alignment = 'start'
+   labelPosition?: LabelPosition = 'top'
+   loadingState?: LoadingState
+   menuTrigger?: MenuTriggerAction = 'input'
+   menuWidth?: number
+   name?: string
+   necessityIndicator?: NecessityIndicator = 'icon'
+   onBlur?: (FocusEvent<HTMLInputElement>) => void
+   onFocus?: (FocusEvent<HTMLInputElement>) => void
+   onFocusChange?: (boolean) => void
+   onInputChange?: (string) => void
+   onKeyDown?: (KeyboardEvent) => void
+   onKeyUp?: (KeyboardEvent) => void
+   onLoadMore?: () => any
+   onOpenChange?: (boolean, MenuTriggerAction) => void
+   onSelectionChange?: (Key | null) => void
+   placeholder?: string
++  prefix?: ReactNode
+   selectedKey?: Key | null
+   shouldFlip?: boolean = true
+   shouldFocusWrap?: boolean
+   size?: 'S' | 'M' | 'L' | 'XL' = 'M'
+   styles?: StylesProp
+   validate?: (ComboBoxValidationValue<SelectionMode>) => ValidationError | boolean | null | undefined
+   validationBehavior?: 'native' | 'aria' = 'native'
+ }
+```
+
+
+#### /@react-spectrum/s2:FullscreenDialog
+```diff
+ FullscreenDialog {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children?: ReactNode | (DialogRenderProps) => ReactNode
+   id?: string
+   isKeyboardDismissDisabled?: boolean
+   role?: 'dialog' | 'alertdialog' = 'dialog'
+   slot?: string | null
+   styles?: StylesProp
+-  variant?: 'fullscreen' | 'fullscreenTakeover' = "fullscreen"
++  variant?: 'fullscreen' | 'fullscreenTakeover' = 'fullscreen'
+ }
+```
+
+
+#### /@react-spectrum/s2:ListView
+```diff
+ ListView <T extends {}> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children: ReactNode | ({}) => ReactNode
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   disallowTypeAhead?: boolean = false
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   id?: string
+   isQuiet?: boolean
+   items?: Iterable<T>
+   loadingState?: LoadingState
+   onAction?: (Key) => void
+   onLoadMore?: () => void
+   onSelectionChange?: (Selection) => void
+   overflowMode?: 'wrap' | 'truncate' = 'truncate'
+   renderActionBar?: ('all' | Set<Key>) => ReactElement
+   renderEmptyState?: (GridListRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   selectionStyle?: 'highlight' | 'checkbox' = 'checkbox'
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   styles?: StylesPropWithHeight
+ }
+```
+
+
+#### /@react-spectrum/s2:Meter
+```diff
+ Meter {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   id?: string
+   label?: ReactNode
+   labelPosition?: LabelPosition = 'top'
+   maxValue?: number = 100
+   size?: 'S' | 'M' | 'L' | 'XL' = 'M'
+   slot?: string | null
+   staticColor?: 'white' | 'black' | 'auto'
+   styles?: StylesProp
+   value?: number = 0
+   valueLabel?: ReactNode
+   variant?: 'informative' | 'positive' | 'notice' | 'negative' = 'informative'
+ }
+```
+
+
++  prefix?: ReactNode
+   styles?: StylesProp
+#### /@react-spectrum/s2:ProgressBar
+```diff
+ ProgressBar {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   id?: string
+   isIndeterminate?: boolean
+   label?: ReactNode
+   labelPosition?: LabelPosition = 'top'
+   minValue?: number = 0
+   size?: 'S' | 'M' | 'L' | 'XL' = 'M'
+   slot?: string | null
+   staticColor?: 'white' | 'black' | 'auto'
+   styles?: StylesProp
+   value?: number = 0
+   valueLabel?: ReactNode
+ }
+```
+
+
+#### /@react-spectrum/s2:TableView
+```diff
+ TableView {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children?: ReactNode
+   defaultExpandedKeys?: Iterable<Key>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   density?: 'compact' | 'spacious' | 'regular' = 'regular'
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   expandedKeys?: Iterable<Key>
+   isQuiet?: boolean
+   loadingState?: LoadingState
+   onAction?: (Key) => void
+   onExpandedChange?: (Set<Key>) => any
+   onLoadMore?: () => any
+   onResize?: (Map<Key, ColumnSize>) => void
+   onResizeEnd?: (Map<Key, ColumnSize>) => void
+   onResizeStart?: (Map<Key, ColumnSize>) => void
+   onSelectionChange?: (Selection) => void
+   onSortChange?: (SortDescriptor) => any
+   overflowMode?: 'wrap' | 'truncate' = 'truncate'
+   renderActionBar?: ('all' | Set<Key>) => ReactElement
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   sortDescriptor?: SortDescriptor
+   styles?: StylesPropWithHeight
+   treeColumn?: Key
+ }
+```
+
+
+#### /@react-spectrum/s2:ToastContainer
+```diff
+ ToastContainer {
+   aria-describedby?: string
+   aria-details?: string
+-  aria-label?: string = "Notifications"
++  aria-label?: string = 'Notifications'
+   aria-labelledby?: string
+-  placement?: ToastPlacement = "bottom"
++  placement?: ToastPlacement = 'bottom'
+ }
+```
+
+
+#### /@react-spectrum/s2:ToggleButtonGroup
+```diff
+ ToggleButtonGroup {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children: ReactNode
+   defaultSelectedKeys?: Iterable<Key>
+-  density?: 'compact' | 'regular' = "regular"
++  density?: 'compact' | 'regular' = 'regular'
+   disallowEmptySelection?: boolean
+   id?: string
+   isDisabled?: boolean
+   isEmphasized?: boolean
+   isJustified?: boolean
+   isQuiet?: boolean
+   onSelectionChange?: (Set<Key>) => void
+   orientation?: 'horizontal' | 'vertical' = 'horizontal'
+   selectedKeys?: Iterable<Key>
+   selectionMode?: 'single' | 'multiple' = 'single'
+-  size?: 'XS' | 'S' | 'M' | 'L' | 'XL' = "M"
++  size?: 'XS' | 'S' | 'M' | 'L' | 'XL' = 'M'
+   slot?: string | null
+   staticColor?: 'white' | 'black' | 'auto'
+   styles?: StylesPropWithHeight
+ }
+```
+
+
+#### /@react-spectrum/s2:ActionButtonGroupProps
+```diff
+ ActionButtonGroupProps {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children: ReactNode
+-  density?: 'compact' | 'regular' = "regular"
++  density?: 'compact' | 'regular' = 'regular'
+   isDisabled?: boolean
+   isJustified?: boolean
+   isQuiet?: boolean
+   orientation?: 'horizontal' | 'vertical' = 'horizontal'
+-  size?: 'XS' | 'S' | 'M' | 'L' | 'XL' = "M"
++  size?: 'XS' | 'S' | 'M' | 'L' | 'XL' = 'M'
+   slot?: string | null
+   staticColor?: 'white' | 'black' | 'auto'
+   styles?: StylesPropWithHeight
+ }
+```
+
+
++  selectionMode?: CalendarSelectionMode = 'single'
+#### /@react-spectrum/s2:CardViewProps
+```diff
+ CardViewProps <T> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children?: ReactNode | (T) => ReactNode
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   density?: 'compact' | 'regular' | 'spacious' = 'regular'
+   dependencies?: ReadonlyArray<any>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   disallowTypeAhead?: boolean = false
+   dragAndDropHooks?: DragAndDropHooks<NoInfer<T>>
+   id?: string
+   items?: Iterable<T>
+   layout?: 'grid' | 'waterfall' = 'grid'
+   loadingState?: LoadingState
+   onAction?: (Key) => void
+   onLoadMore?: () => void
+   onSelectionChange?: (Selection) => void
+   orientation?: Orientation = 'vertical'
+   renderActionBar?: ('all' | Set<Key>) => ReactElement
+   renderEmptyState?: (GridListRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   selectionStyle?: 'checkbox' | 'highlight' = 'checkbox'
+   shouldSelectOnPressUp?: boolean
+   size?: 'XS' | 'S' | 'M' | 'L' | 'XL' = 'M'
+   slot?: string | null
+   styles?: StylesPropWithHeight
+   variant?: 'primary' | 'secondary' | 'tertiary' | 'quiet' = 'primary'
+ }
+```
+
+
++  prefix?: ReactNode
+   validate?: (Color | null) => ValidationError | boolean | null | undefined
+#### /@react-spectrum/s2:ComboBoxProps
+```diff
+ ComboBoxProps <T extends {}> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   align?: 'start' | 'end' = 'start'
+   allowsCustomValue?: boolean
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean
+   children: ReactNode | ({}) => ReactNode
+   contextualHelp?: ReactNode
+   defaultInputValue?: string
+   defaultItems?: Iterable<T>
+   defaultSelectedKey?: Key | null
+   dependencies?: ReadonlyArray<any>
+   description?: ReactNode
+   direction?: 'bottom' | 'top' = 'bottom'
+   disabledKeys?: Iterable<Key>
+   errorMessage?: ReactNode | (ValidationResult) => ReactNode
+   form?: string
+   formValue?: 'text' | 'key' = 'key'
+   id?: string
+   inputValue?: string
+   isDisabled?: boolean
+   isInvalid?: boolean
+   isReadOnly?: boolean
+   isRequired?: boolean
+   items?: Iterable<T>
+   label?: ReactNode
+   labelAlign?: Alignment = 'start'
+   labelPosition?: LabelPosition = 'top'
+   loadingState?: LoadingState
+   menuTrigger?: MenuTriggerAction = 'input'
+   menuWidth?: number
+   name?: string
+   necessityIndicator?: NecessityIndicator = 'icon'
+   onBlur?: (FocusEvent<HTMLInputElement>) => void
+   onFocus?: (FocusEvent<HTMLInputElement>) => void
+   onFocusChange?: (boolean) => void
+   onInputChange?: (string) => void
+   onKeyDown?: (KeyboardEvent) => void
+   onKeyUp?: (KeyboardEvent) => void
+   onLoadMore?: () => any
+   onOpenChange?: (boolean, MenuTriggerAction) => void
+   onSelectionChange?: (Key | null) => void
+   placeholder?: string
++  prefix?: ReactNode
+   selectedKey?: Key | null
+   shouldFlip?: boolean = true
+   shouldFocusWrap?: boolean
+   size?: 'S' | 'M' | 'L' | 'XL' = 'M'
+   styles?: StylesProp
+   validate?: (ComboBoxValidationValue<SelectionMode>) => ValidationError | boolean | null | undefined
+   validationBehavior?: 'native' | 'aria' = 'native'
+ }
+```
+
+
+#### /@react-spectrum/s2:FullscreenDialogProps
+```diff
+ FullscreenDialogProps {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children?: ReactNode | (DialogRenderProps) => ReactNode
+   id?: string
+   isKeyboardDismissDisabled?: boolean
+   role?: 'dialog' | 'alertdialog' = 'dialog'
+   slot?: string | null
+   styles?: StylesProp
+-  variant?: 'fullscreen' | 'fullscreenTakeover' = "fullscreen"
++  variant?: 'fullscreen' | 'fullscreenTakeover' = 'fullscreen'
+ }
+```
+
+
+#### /@react-spectrum/s2:ListViewProps
+```diff
+ ListViewProps <T> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children: ReactNode | (T) => ReactNode
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   disallowTypeAhead?: boolean = false
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   id?: string
+   isQuiet?: boolean
+   items?: Iterable<T>
+   loadingState?: LoadingState
+   onAction?: (Key) => void
+   onLoadMore?: () => void
+   onSelectionChange?: (Selection) => void
+   overflowMode?: 'wrap' | 'truncate' = 'truncate'
+   renderActionBar?: ('all' | Set<Key>) => ReactElement
+   renderEmptyState?: (GridListRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   selectionStyle?: 'highlight' | 'checkbox' = 'checkbox'
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   styles?: StylesPropWithHeight
+ }
+```
+
+
+#### /@react-spectrum/s2:MeterProps
+```diff
+ MeterProps {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   id?: string
+   label?: ReactNode
+   labelPosition?: LabelPosition = 'top'
+   maxValue?: number = 100
+   size?: 'S' | 'M' | 'L' | 'XL' = 'M'
+   slot?: string | null
+   staticColor?: 'white' | 'black' | 'auto'
+   styles?: StylesProp
+   value?: number = 0
+   valueLabel?: ReactNode
+   variant?: 'informative' | 'positive' | 'notice' | 'negative' = 'informative'
+ }
+```
+
+
+#### /@react-spectrum/s2:ProgressBarProps
+```diff
+ ProgressBarProps {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+-  formatOptions?: Intl.NumberFormatOptions = {style: 'percent'}
++  formatOptions?: Intl.NumberFormatOptions = { style: 'percent' }
+   id?: string
+   isIndeterminate?: boolean
+   label?: ReactNode
+   labelPosition?: LabelPosition = 'top'
+   minValue?: number = 0
+   size?: 'S' | 'M' | 'L' | 'XL' = 'M'
+   slot?: string | null
+   staticColor?: 'white' | 'black' | 'auto'
+   styles?: StylesProp
+   value?: number = 0
+   valueLabel?: ReactNode
+ }
+```
+
+
+#### /@react-spectrum/s2:TableViewProps
+```diff
+ TableViewProps {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children?: ReactNode
+   defaultExpandedKeys?: Iterable<Key>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   density?: 'compact' | 'spacious' | 'regular' = 'regular'
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   expandedKeys?: Iterable<Key>
+   isQuiet?: boolean
+   loadingState?: LoadingState
+   onAction?: (Key) => void
+   onExpandedChange?: (Set<Key>) => any
+   onLoadMore?: () => any
+   onResize?: (Map<Key, ColumnSize>) => void
+   onResizeEnd?: (Map<Key, ColumnSize>) => void
+   onResizeStart?: (Map<Key, ColumnSize>) => void
+   onSelectionChange?: (Selection) => void
+   onSortChange?: (SortDescriptor) => any
+   overflowMode?: 'wrap' | 'truncate' = 'truncate'
+   renderActionBar?: ('all' | Set<Key>) => ReactElement
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   sortDescriptor?: SortDescriptor
+   styles?: StylesPropWithHeight
+   treeColumn?: Key
+ }
+```
+
+
+#### /@react-spectrum/s2:ToastContainerProps
+```diff
+ ToastContainerProps {
+   aria-describedby?: string
+   aria-details?: string
+-  aria-label?: string = "Notifications"
++  aria-label?: string = 'Notifications'
+   aria-labelledby?: string
+-  placement?: ToastPlacement = "bottom"
++  placement?: ToastPlacement = 'bottom'
+ }
+```
+
+
+#### /@react-spectrum/s2:ToggleButtonGroupProps
+```diff
+ ToggleButtonGroupProps {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children: ReactNode
+   defaultSelectedKeys?: Iterable<Key>
+-  density?: 'compact' | 'regular' = "regular"
++  density?: 'compact' | 'regular' = 'regular'
+   disallowEmptySelection?: boolean
+   id?: string
+   isDisabled?: boolean
+   isEmphasized?: boolean
+   isJustified?: boolean
+   isQuiet?: boolean
+   onSelectionChange?: (Set<Key>) => void
+   orientation?: 'horizontal' | 'vertical' = 'horizontal'
+   selectedKeys?: Iterable<Key>
+   selectionMode?: 'single' | 'multiple' = 'single'
+-  size?: 'XS' | 'S' | 'M' | 'L' | 'XL' = "M"
++  size?: 'XS' | 'S' | 'M' | 'L' | 'XL' = 'M'
+   slot?: string | null
+   staticColor?: 'white' | 'black' | 'auto'
+   styles?: StylesPropWithHeight
+ }
+```
+
+
+#### /@react-spectrum/s2:LabeledValue
+```diff
++LabeledValue <T extends LabeledValueTypes> {
++  LabeledValue: LabeledValueProps
++}
+```
+
+
+#### /@react-spectrum/s2:LabeledValueContext
+```diff
++LabeledValueContext {
++  UNTYPED
++}
+```
+
+
+#### /@react-spectrum/s2:LabeledValueProps
+```diff
++LabeledValueProps {
++  L: undefined
++}
+```
+
+
+### @react-spectrum/table
+
+#### /@react-spectrum/table:TableView
+```diff
+ TableView <T extends {}> {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   bottom?: Responsive<DimensionValue>
+   children: [ReactElement<TableHeaderProps<T>>, ReactElement<TableBodyProps<T>>]
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   density?: 'compact' | 'regular' | 'spacious' = 'regular'
+-  disabledBehavior?: DisabledBehavior = "selection"
++  disabledBehavior?: DisabledBehavior = 'selection'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   dragAndDropHooks?: DragAndDropHooks<NoInfer<{}>>['dragAndDropHooks']
+   end?: Responsive<DimensionValue>
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRow?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isHidden?: Responsive<boolean>
+   isQuiet?: boolean
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   left?: Responsive<DimensionValue>
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minWidth?: Responsive<DimensionValue>
+   onAction?: (Key) => void
+   onResize?: (Map<Key, ColumnSize>) => void
+   onResizeEnd?: (Map<Key, ColumnSize>) => void
+   onResizeStart?: (Map<Key, ColumnSize>) => void
+   onSelectionChange?: (Selection) => void
+   onSortChange?: (SortDescriptor) => any
+   order?: Responsive<number>
+   overflowMode?: 'wrap' | 'truncate' = 'truncate'
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   renderEmptyState?: () => JSX.Element
+   right?: Responsive<DimensionValue>
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   selectionStyle?: 'checkbox' | 'highlight'
+   shouldSelectOnPressUp?: boolean
+   sortDescriptor?: SortDescriptor
+   start?: Responsive<DimensionValue>
+   top?: Responsive<DimensionValue>
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+ }
+```
+
+
+#### /@react-spectrum/table:SpectrumTableProps
+```diff
+ SpectrumTableProps <T> {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   bottom?: Responsive<DimensionValue>
+   children: [ReactElement<TableHeaderProps<T>>, ReactElement<TableBodyProps<T>>]
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   density?: 'compact' | 'regular' | 'spacious' = 'regular'
+-  disabledBehavior?: DisabledBehavior = "selection"
++  disabledBehavior?: DisabledBehavior = 'selection'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   dragAndDropHooks?: DragAndDropHooks<NoInfer<T>>['dragAndDropHooks']
+   end?: Responsive<DimensionValue>
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRow?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isHidden?: Responsive<boolean>
+   isQuiet?: boolean
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   left?: Responsive<DimensionValue>
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minWidth?: Responsive<DimensionValue>
+   onAction?: (Key) => void
+   onResize?: (Map<Key, ColumnSize>) => void
+   onResizeEnd?: (Map<Key, ColumnSize>) => void
+   onResizeStart?: (Map<Key, ColumnSize>) => void
+   onSelectionChange?: (Selection) => void
+   onSortChange?: (SortDescriptor) => any
+   order?: Responsive<number>
+   overflowMode?: 'wrap' | 'truncate' = 'truncate'
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   renderEmptyState?: () => JSX.Element
+   right?: Responsive<DimensionValue>
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   selectionStyle?: 'checkbox' | 'highlight'
+   shouldSelectOnPressUp?: boolean
+   sortDescriptor?: SortDescriptor
+   start?: Responsive<DimensionValue>
+   top?: Responsive<DimensionValue>
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+ }
+```
+
+-----------------------------------
+
+
+### @react-spectrum/toast
+
+#### /@react-spectrum/toast:ToastContainer
+```diff
+ ToastContainer {
+   aria-describedby?: string
+   aria-details?: string
+-  aria-label?: string = "Notifications"
++  aria-label?: string = 'Notifications'
+   aria-labelledby?: string
+   placement?: ToastPlacement
+ }
+```
+
+
+#### /@react-spectrum/toast:SpectrumToastContainerProps
+```diff
+ SpectrumToastContainerProps {
+   aria-describedby?: string
+   aria-details?: string
+-  aria-label?: string = "Notifications"
++  aria-label?: string = 'Notifications'
+   aria-labelledby?: string
+   placement?: ToastPlacement
+ }
+```
+
+-----------------------------------
+
+
+### @react-spectrum/tree
+
+#### /@react-spectrum/tree:TreeView
+```diff
+ TreeView <T extends {}> {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   bottom?: Responsive<DimensionValue>
+   children?: ReactNode | ({}) => ReactNode
+   defaultExpandedKeys?: Iterable<Key>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   end?: Responsive<DimensionValue>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRow?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isHidden?: Responsive<boolean>
+   items?: Iterable<T>
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   left?: Responsive<DimensionValue>
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minWidth?: Responsive<DimensionValue>
+   onAction?: (Key) => void
+   onExpandedChange?: (Set<Key>) => any
+   onSelectionChange?: (Selection) => void
+   order?: Responsive<number>
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   renderEmptyState?: () => JSX.Element
+   right?: Responsive<DimensionValue>
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   selectionStyle?: 'checkbox' | 'highlight'
+   shouldSelectOnPressUp?: boolean
+   start?: Responsive<DimensionValue>
+   top?: Responsive<DimensionValue>
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+ }
+```
+
+
+#### /@react-spectrum/tree:SpectrumTreeViewProps
+```diff
+ SpectrumTreeViewProps <T> {
+   UNSAFE_className?: string
+   UNSAFE_style?: CSSProperties
+   alignSelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'stretch'>
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   bottom?: Responsive<DimensionValue>
+   children?: ReactNode | (T) => ReactNode
+   defaultExpandedKeys?: Iterable<Key>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+-  disabledBehavior?: DisabledBehavior = "all"
++  disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   end?: Responsive<DimensionValue>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   flex?: Responsive<string | number | boolean>
+   flexBasis?: Responsive<number | string>
+   flexGrow?: Responsive<number>
+   flexShrink?: Responsive<number>
+   gridArea?: Responsive<string>
+   gridColumn?: Responsive<string>
+   gridColumnEnd?: Responsive<string>
+   gridColumnStart?: Responsive<string>
+   gridRow?: Responsive<string>
+   gridRowEnd?: Responsive<string>
+   gridRowStart?: Responsive<string>
+   height?: Responsive<DimensionValue>
+   id?: string
+   isHidden?: Responsive<boolean>
+   items?: Iterable<T>
+   justifySelf?: Responsive<'auto' | 'normal' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'center' | 'left' | 'right' | 'stretch'>
+   left?: Responsive<DimensionValue>
+   margin?: Responsive<DimensionValue>
+   marginBottom?: Responsive<DimensionValue>
+   marginEnd?: Responsive<DimensionValue>
+   marginStart?: Responsive<DimensionValue>
+   marginTop?: Responsive<DimensionValue>
+   marginX?: Responsive<DimensionValue>
+   marginY?: Responsive<DimensionValue>
+   maxHeight?: Responsive<DimensionValue>
+   maxWidth?: Responsive<DimensionValue>
+   minHeight?: Responsive<DimensionValue>
+   minWidth?: Responsive<DimensionValue>
+   onAction?: (Key) => void
+   onExpandedChange?: (Set<Key>) => any
+   onSelectionChange?: (Selection) => void
+   order?: Responsive<number>
+   position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
+   renderEmptyState?: () => JSX.Element
+   right?: Responsive<DimensionValue>
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   selectionStyle?: 'checkbox' | 'highlight'
+   shouldSelectOnPressUp?: boolean
+   start?: Responsive<DimensionValue>
+   top?: Responsive<DimensionValue>
+   width?: Responsive<DimensionValue>
+   zIndex?: Responsive<number>
+ }
+```
+
+-----------------------------------
+
+
++  selectionMode?: CalendarSelectionMode = 'single'
+-  visibleDuration?: DateDuration = {months: 1}
++  selectionMode?: CalendarSelectionMode = 'single'
++  visibleDuration?: DateDuration = { months: 1 }
+-  visibleDuration?: DateDuration = {months: 1}
++  visibleDuration?: DateDuration = { months: 1 }
+### @react-stately/color
+
+#### /@react-stately/color:ColorSliderState
+```diff
+ ColorSliderState {
+   decrementThumb: (number, number) => void
+   defaultValues: Array<number>
+   focusedThumb: number | undefined
+   getDisplayColor: () => Color
+-  getFormattedValue: (number) => string
++  getFormattedValue: (number | Array<number>) => string
+   getPercentValue: (number) => number
+   getThumbMaxValue: (number) => number
+   getThumbMinValue: (number) => number
+   getThumbPercent: (number) => number
+   getThumbValueLabel: (number) => string
+   getValuePercent: (number) => number
+   incrementThumb: (number, number) => void
+   isDisabled: boolean
+   isDragging: boolean
+   isThumbDragging: (number) => boolean
+   isThumbEditable: (number) => boolean
+   orientation: Orientation
+   pageSize: number
+   setFocusedThumb: (number | undefined) => void
+   setThumbDragging: (number, boolean) => void
+   setThumbEditable: (number, boolean) => void
+   setThumbPercent: (number, number) => void
+   setThumbValue: (number, number) => void
+   setValue: (string | Color) => void
+   step: number
+   value: Color
+   values: Array<number>
+ }
+```
+
+-----------------------------------
+
+
+ }
+```
+
+-----------------------------------
+
+
+### @react-stately/slider
+
+#### /@react-stately/slider:SliderState
+```diff
+ SliderState {
+   decrementThumb: (number, number) => void
+   defaultValues: Array<number>
+   focusedThumb: number | undefined
+-  getFormattedValue: (number) => string
++  getFormattedValue: (number | Array<number>) => string
+   getPercentValue: (number) => number
+   getThumbMaxValue: (number) => number
+   getThumbMinValue: (number) => number
+   getThumbPercent: (number) => number
+   getThumbValueLabel: (number) => string
+   getValuePercent: (number) => number
+   incrementThumb: (number, number) => void
+   isDisabled: boolean
+   isThumbDragging: (number) => boolean
+   isThumbEditable: (number) => boolean
+   orientation: Orientation
+   pageSize: number
+   setFocusedThumb: (number | undefined) => void
+   setThumbDragging: (number, boolean) => void
+   setThumbEditable: (number, boolean) => void
+   setThumbPercent: (number, number) => void
+   setThumbValue: (number, number) => void
+   step: number
+   values: Array<number>
+
+=== API CHANGES RELEASED SINCE LAST WEEK (were in last week's diff, now gone) ===
++  selectionMode?: CalendarSelectionMode = "single"
+   visibleDuration?: DateDuration = {months: 1}
+   visibleDuration?: DateDuration = {months: 1}
++  selectionMode?: CalendarSelectionMode = "single"
+   visibleDuration?: DateDuration = {months: 1}
+   visibleDuration?: DateDuration = {months: 1}
++  selectionMode?: CalendarSelectionMode = "single"
++  selectionMode?: CalendarSelectionMode = "single"
++  selectionMode?: CalendarSelectionMode = "single"
++  selectionMode?: CalendarSelectionMode = "single"
++  selectionMode?: CalendarSelectionMode = "single"
+   validationBehavior?: 'native' | 'aria' = 'native'
+   validate?: (number) => ValidationError | boolean | null | undefined
++  selectionMode?: CalendarSelectionMode = "single"
+   validationBehavior?: 'native' | 'aria' = 'native'
++  selectionMode?: CalendarSelectionMode = "single"
++  selectionMode?: CalendarSelectionMode = "single"
+   visibleDuration?: DateDuration = {months: 1}
+   visibleDuration?: DateDuration = {months: 1}
