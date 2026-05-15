@@ -34,13 +34,13 @@
 -  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, CalendarRenderProps>
 +  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, CalendarRenderProps<CalendarSelectionMode>>
    selectionAlignment?: 'start' | 'center' | 'end' = 'center'
-+  selectionMode?: CalendarSelectionMode = "single"
++  selectionMode?: CalendarSelectionMode = 'single'
    slot?: string | null
 -  style?: StyleOrFunction<CalendarRenderProps>
 -  value?: DateValue | null
 +  style?: StyleOrFunction<CalendarRenderProps<CalendarSelectionMode>>
 +  value?: CalendarValueType<DateValue | null, CalendarSelectionMode>
-   visibleDuration?: DateDuration = {months: 1}
+   visibleDuration?: DateDuration = { months: 1 }
 +  weeksInMonth?: number
  }
 ```
@@ -79,7 +79,7 @@
    slot?: string | null
    style?: StyleOrFunction<RangeCalendarRenderProps>
    value?: RangeValue<DateValue> | null
-   visibleDuration?: DateDuration = {months: 1}
+   visibleDuration?: DateDuration = { months: 1 }
 +  weeksInMonth?: number
  }
 ```
@@ -533,13 +533,13 @@
 -  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, CalendarRenderProps>
 +  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, CalendarRenderProps<CalendarSelectionMode>>
    selectionAlignment?: 'start' | 'center' | 'end' = 'center'
-+  selectionMode?: CalendarSelectionMode = "single"
++  selectionMode?: CalendarSelectionMode = 'single'
    slot?: string | null
 -  style?: StyleOrFunction<CalendarRenderProps>
 -  value?: DateValue | null
 +  style?: StyleOrFunction<CalendarRenderProps<CalendarSelectionMode>>
 +  value?: CalendarValueType<DateValue | null, CalendarSelectionMode>
-   visibleDuration?: DateDuration = {months: 1}
+   visibleDuration?: DateDuration = { months: 1 }
 +  weeksInMonth?: number
  }
 ```
@@ -590,7 +590,7 @@
    slot?: string | null
    style?: StyleOrFunction<RangeCalendarRenderProps>
    value?: RangeValue<DateValue> | null
-   visibleDuration?: DateDuration = {months: 1}
+   visibleDuration?: DateDuration = { months: 1 }
 +  weeksInMonth?: number
  }
 ```
@@ -1869,7 +1869,7 @@
    pageBehavior?: PageBehavior = visible
    selectionAlignment?: 'start' | 'center' | 'end' = 'center'
 -  value?: DateValue | null
-+  selectionMode?: CalendarSelectionMode = "single"
++  selectionMode?: CalendarSelectionMode = 'single'
 +  value?: CalendarValueType<DateValue | null, CalendarSelectionMode>
 +  weeksInMonth?: number
  }
@@ -1932,7 +1932,7 @@
    pageBehavior?: PageBehavior = visible
    selectionAlignment?: 'start' | 'center' | 'end' = 'center'
 -  value?: DateValue | null
-+  selectionMode?: CalendarSelectionMode = "single"
++  selectionMode?: CalendarSelectionMode = 'single'
 +  value?: CalendarValueType<DateValue | null, CalendarSelectionMode>
 +  weeksInMonth?: number
  }
@@ -2809,7 +2809,7 @@
    position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
    right?: Responsive<DimensionValue>
    selectionAlignment?: 'start' | 'center' | 'end' = 'center'
-+  selectionMode?: CalendarSelectionMode = "single"
++  selectionMode?: CalendarSelectionMode = 'single'
    start?: Responsive<DimensionValue>
    top?: Responsive<DimensionValue>
 -  value?: DateValue | null
@@ -2956,7 +2956,7 @@
    position?: Responsive<'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'>
    right?: Responsive<DimensionValue>
    selectionAlignment?: 'start' | 'center' | 'end' = 'center'
-+  selectionMode?: CalendarSelectionMode = "single"
++  selectionMode?: CalendarSelectionMode = 'single'
    start?: Responsive<DimensionValue>
    top?: Responsive<DimensionValue>
 -  value?: DateValue | null
@@ -3672,7 +3672,7 @@
    onFocusChange?: (CalendarDate) => void
    pageBehavior?: PageBehavior = visible
    selectionAlignment?: 'start' | 'center' | 'end' = 'center'
-+  selectionMode?: CalendarSelectionMode = "single"
++  selectionMode?: CalendarSelectionMode = 'single'
    slot?: string | null
    styles?: StylesProp
 -  value?: DateValue | null
@@ -4317,7 +4317,7 @@
    onFocusChange?: (CalendarDate) => void
    pageBehavior?: PageBehavior = visible
    selectionAlignment?: 'start' | 'center' | 'end' = 'center'
-+  selectionMode?: CalendarSelectionMode = "single"
++  selectionMode?: CalendarSelectionMode = 'single'
    slot?: string | null
    styles?: StylesProp
 -  value?: DateValue | null
@@ -5874,7 +5874,7 @@
    pageBehavior?: PageBehavior = visible
    selectionAlignment?: 'start' | 'center' | 'end' = 'center'
 -  value?: DateValue | null
-+  selectionMode?: CalendarSelectionMode = "single"
++  selectionMode?: CalendarSelectionMode = 'single'
 +  value?: CalendarValueType<DateValue | null, CalendarSelectionMode>
 +  weeksInMonth?: number
  }
@@ -5906,9 +5906,9 @@
    pageBehavior?: PageBehavior = visible
    selectionAlignment?: 'start' | 'center' | 'end' = 'center'
 -  value?: DateValue | null
-+  selectionMode?: CalendarSelectionMode = "single"
++  selectionMode?: CalendarSelectionMode = 'single'
 +  value?: CalendarValueType<DateValue | null, CalendarSelectionMode>
-   visibleDuration?: DateDuration = {months: 1}
+   visibleDuration?: DateDuration = { months: 1 }
 +  weeksInMonth?: number
  }
 ```
@@ -6084,7 +6084,7 @@
    pageBehavior?: PageBehavior = visible
    selectionAlignment?: 'start' | 'center' | 'end' = 'center'
    value?: RangeValue<DateValue> | null
-   visibleDuration?: DateDuration = {months: 1}
+   visibleDuration?: DateDuration = { months: 1 }
 +  weeksInMonth?: number
  }
 ```
