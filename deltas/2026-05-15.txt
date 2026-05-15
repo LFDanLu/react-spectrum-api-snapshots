@@ -1,0 +1,474 @@
+=== NEW API CHANGES THIS WEEK (not in last week's diff) ===
+#### /react-aria-components:ColorSliderState
+```diff
+ ColorSliderState {
+   decrementThumb: (number, number) => void
+   defaultValues: Array<number>
+   focusedThumb: number | undefined
+   getDisplayColor: () => Color
+-  getFormattedValue: (number) => string
++  getFormattedValue: (number | Array<number>) => string
+   getPercentValue: (number) => number
+   getThumbMaxValue: (number) => number
+   getThumbMinValue: (number) => number
+   getThumbPercent: (number) => number
+   getThumbValueLabel: (number) => string
+   getValuePercent: (number) => number
+   incrementThumb: (number, number) => void
+   isDisabled: boolean
+   isDragging: boolean
+   isThumbDragging: (number) => boolean
+   isThumbEditable: (number) => boolean
+   orientation: Orientation
+   pageSize: number
+   setFocusedThumb: (number | undefined) => void
+   setThumbDragging: (number, boolean) => void
+   setThumbEditable: (number, boolean) => void
+   setThumbPercent: (number, number) => void
+   setThumbValue: (number, number) => void
+   setValue: (string | Color) => void
+   step: number
+   value: Color
+   values: Array<number>
+ }
+```
+
+
+#### /react-aria-components:SliderState
+```diff
+ SliderState {
+   decrementThumb: (number, number) => void
+   defaultValues: Array<number>
+   focusedThumb: number | undefined
+-  getFormattedValue: (number) => string
++  getFormattedValue: (number | Array<number>) => string
+   getPercentValue: (number) => number
+   getThumbMaxValue: (number) => number
+   getThumbMinValue: (number) => number
+   getThumbPercent: (number) => number
+   getThumbValueLabel: (number) => string
+   getValuePercent: (number) => number
+   incrementThumb: (number, number) => void
+   isDisabled: boolean
+   isThumbDragging: (number) => boolean
+   isThumbEditable: (number) => boolean
+   orientation: Orientation
+   pageSize: number
+   setFocusedThumb: (number | undefined) => void
+   setThumbDragging: (number, boolean) => void
+   setThumbEditable: (number, boolean) => void
+   setThumbPercent: (number, number) => void
+   setThumbValue: (number, number) => void
+   step: number
+   values: Array<number>
+ }
+```
+
+
+#### /react-aria-components:SliderFill
+```diff
++SliderFill {
++  children?: ChildrenOrFunction<SliderFillRenderProps>
++  className?: ClassNameOrFunction<SliderFillRenderProps> = 'react-aria-SliderFill'
++  offset?: number = 0
++  onHoverChange?: (boolean) => void
++  onHoverEnd?: (HoverEvent) => void
++  onHoverStart?: (HoverEvent) => void
++  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, SliderFillRenderProps>
++  style?: StyleOrFunction<SliderFillRenderProps>
++}
+```
+
+
+#### /react-aria-components:SliderFillContext
+```diff
++SliderFillContext {
++  UNTYPED
++}
+```
+
+
+#### /react-aria-components:SliderFillProps
+```diff
++SliderFillProps {
++  children?: ChildrenOrFunction<SliderFillRenderProps>
++  className?: ClassNameOrFunction<SliderFillRenderProps> = 'react-aria-SliderFill'
++  offset?: number = 0
++  onHoverChange?: (boolean) => void
++  onHoverEnd?: (HoverEvent) => void
++  onHoverStart?: (HoverEvent) => void
++  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, SliderFillRenderProps>
++  style?: StyleOrFunction<SliderFillRenderProps>
++}
+```
+
+
+#### /react-aria-components:SliderFillRenderProps
+```diff
++SliderFillRenderProps {
++  isDisabled: boolean
++  isHovered: boolean
++  orientation: Orientation
++  state: SliderState
++}
+```
+
+
+### @react-spectrum/card
+
+#### /@react-spectrum/card:GalleryLayout
+```diff
+ GalleryLayout <T> {
+   _distributeWidths: (Array<number>) => boolean
+   _findClosest: (Rect, Rect) => LayoutInfo | null
+   _findClosestLayoutInfo: (Rect, Rect) => LayoutInfo | null
+   buildCollection: () => void
+   collection: GridCollection<T>
+   constructor: (GalleryLayoutOptions) => void
+   direction: Direction
+   disabledKeys: Set<Key>
+   getContentSize: () => number
+   getDropTargetLayoutInfo: (ItemDropTarget) => LayoutInfo
+   getFirstKey: () => Node<T> | undefined
+   getKeyAbove: (Key) => Node<T> | undefined
+   getKeyBelow: (Key) => Node<T> | undefined
+   getKeyForSearch: (string, Key) => Node<T> | undefined | null
+   getKeyLeftOf: (Key) => Node<T> | undefined
+   getKeyPageAbove: (Key) => Node<T> | undefined
+   getKeyPageBelow: (Key) => Node<T> | undefined
+   getKeyRightOf: (Key) => Node<T> | undefined
+   getLastKey: () => Node<T> | undefined
+   getLayoutInfo: (Key) => LayoutInfo
+   getVisibleLayoutInfos: (Rect, any) => Array<LayoutInfo>
+   isLoading: boolean
+   isVisible: (LayoutInfo, Rect, boolean) => boolean
+   itemPadding: number
+   layoutType: string
+   margin: number
+   scale: Scale
+   shouldInvalidate: (Rect, Rect) => boolean
+-  shouldInvalidateLayoutOptions: (O, O) => boolean
++  shouldInvalidateLayoutOptions: (CardViewLayoutOptions, CardViewLayoutOptions) => boolean
+   update: (InvalidationContext<CardViewLayoutOptions>) => void
+   updateItemSize: (Key, Size) => boolean
+   virtualizer: Virtualizer<{}, any> | null
+ }
+```
+
+
+#### /@react-spectrum/card:GridLayout
+```diff
+ GridLayout <T> {
+   _findClosest: (Rect, Rect) => LayoutInfo | null
+   _findClosestLayoutInfo: (Rect, Rect) => LayoutInfo | null
+   buildChild: (Node<T>, number, number) => LayoutInfo
+   buildCollection: () => void
+   cardOrientation: Orientation
+   collection: GridCollection<T>
+   constructor: (GridLayoutOptions) => void
+   direction: Direction
+   disabledKeys: Set<Key>
+   getContentSize: () => number
+   getDropTargetLayoutInfo: (ItemDropTarget) => LayoutInfo
+   getFirstKey: () => Node<T> | undefined
+   getIndexAtPoint: (number, number, any) => number
+   getKeyAbove: (Key) => Node<T> | undefined | null
+   getKeyBelow: (Key) => Node<T> | undefined | null
+   getKeyForSearch: (string, Key) => Node<T> | undefined | null
+   getKeyLeftOf: (Key) => Node<T> | undefined
+   getKeyPageAbove: (Key) => Node<T> | undefined
+   getKeyPageBelow: (Key) => Node<T> | undefined
+   getKeyRightOf: (Key) => Node<T> | undefined
+   getLastKey: () => Node<T> | undefined
+   getLayoutInfo: (Key) => LayoutInfo
+   getVisibleLayoutInfos: (Rect, any) => Array<LayoutInfo>
+   isLoading: boolean
+   isVisible: (LayoutInfo, Rect, boolean) => boolean
+   itemPadding: number
+   layoutType: string
+   margin: number
+   scale: Scale
+   shouldInvalidate: (Rect, Rect) => boolean
+-  shouldInvalidateLayoutOptions: (O, O) => boolean
++  shouldInvalidateLayoutOptions: (CardViewLayoutOptions, CardViewLayoutOptions) => boolean
+   update: (InvalidationContext<CardViewLayoutOptions>) => void
+   updateItemSize: (Key, Size) => boolean
+   virtualizer: Virtualizer<{}, any> | null
+ }
+```
+
+
+#### /@react-spectrum/card:WaterfallLayout
+```diff
+ WaterfallLayout <T> {
+   _findClosest: (Rect, Rect) => LayoutInfo | null
+   _findClosestLayoutInfo: (Rect, Rect) => LayoutInfo | null
+   buildCollection: (InvalidationContext) => void
+   collection: GridCollection<T>
+   constructor: (WaterfallLayoutOptions) => void
+   direction: Direction
+   disabledKeys: Set<Key>
+   getClosestLeft: (Key) => Node<T> | undefined
+   getClosestRight: (Key) => Node<T> | undefined
+   getContentSize: () => number
+   getDropTargetLayoutInfo: (ItemDropTarget) => LayoutInfo
+   getFirstKey: () => Node<T> | undefined
+   getKeyAbove: (Key) => Node<T> | undefined
+   getKeyBelow: (Key) => Node<T> | undefined
+   getKeyForSearch: (string, Key) => Node<T> | undefined | null
+   getKeyLeftOf: (Key) => Node<T> | undefined
+   getKeyPageAbove: (Key) => Node<T> | undefined
+   getKeyPageBelow: (Key) => Node<T> | undefined
+   getKeyRightOf: (Key) => Node<T> | undefined
+   getLastKey: () => Node<T> | undefined
+   getLayoutInfo: (Key) => LayoutInfo
+   getNextColumnIndex: (Array<number>) => number
+   getVisibleLayoutInfos: (Rect, any) => Array<LayoutInfo>
+   isLoading: boolean
+   isVisible: (LayoutInfo, Rect, boolean) => boolean
+   layoutType: string
+   margin: number
+   scale: Scale
+   shouldInvalidate: (Rect, Rect) => boolean
+-  shouldInvalidateLayoutOptions: (O, O) => boolean
++  shouldInvalidateLayoutOptions: (CardViewLayoutOptions, CardViewLayoutOptions) => boolean
+   update: (InvalidationContext<CardViewLayoutOptions>) => void
+   updateItemSize: (Key, Size) => number
+   virtualizer: Virtualizer<{}, any> | null
+ }
+```
+
+-----------------------------------
+
+
++  prefix?: ReactNode
+   validate?: (Color | null) => ValidationError | boolean | null | undefined
+#### /@react-spectrum/s2:ComboBox
+```diff
+ ComboBox <T extends {}> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   align?: 'start' | 'end' = 'start'
+   allowsCustomValue?: boolean
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean
+   children: ReactNode | ({}) => ReactNode
+   contextualHelp?: ReactNode
+   defaultInputValue?: string
+   defaultItems?: Iterable<T>
+   defaultSelectedKey?: Key | null
+   dependencies?: ReadonlyArray<any>
+   description?: ReactNode
+   direction?: 'bottom' | 'top' = 'bottom'
+   disabledKeys?: Iterable<Key>
+   errorMessage?: ReactNode | (ValidationResult) => ReactNode
+   form?: string
+   formValue?: 'text' | 'key' = 'key'
+   id?: string
+   inputValue?: string
+   isDisabled?: boolean
+   isInvalid?: boolean
+   isReadOnly?: boolean
+   isRequired?: boolean
+   items?: Iterable<T>
+   label?: ReactNode
+   labelAlign?: Alignment = 'start'
+   labelPosition?: LabelPosition = 'top'
+   loadingState?: LoadingState
+   menuTrigger?: MenuTriggerAction = 'input'
+   menuWidth?: number
+   name?: string
+   necessityIndicator?: NecessityIndicator = 'icon'
+   onBlur?: (FocusEvent<HTMLInputElement>) => void
+   onFocus?: (FocusEvent<HTMLInputElement>) => void
+   onFocusChange?: (boolean) => void
+   onInputChange?: (string) => void
+   onKeyDown?: (KeyboardEvent) => void
+   onKeyUp?: (KeyboardEvent) => void
+   onLoadMore?: () => any
+   onOpenChange?: (boolean, MenuTriggerAction) => void
+   onSelectionChange?: (Key | null) => void
+   placeholder?: string
++  prefix?: ReactNode
+   selectedKey?: Key | null
+   shouldFlip?: boolean = true
+   shouldFocusWrap?: boolean
+   size?: 'S' | 'M' | 'L' | 'XL' = 'M'
+   styles?: StylesProp
+   validate?: (ComboBoxValidationValue<SelectionMode>) => ValidationError | boolean | null | undefined
+   validationBehavior?: 'native' | 'aria' = 'native'
+ }
+```
+
+
++  prefix?: ReactNode
+   styles?: StylesProp
++  prefix?: ReactNode
+   validate?: (Color | null) => ValidationError | boolean | null | undefined
+#### /@react-spectrum/s2:ComboBoxProps
+```diff
+ ComboBoxProps <T extends {}> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   align?: 'start' | 'end' = 'start'
+   allowsCustomValue?: boolean
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean
+   children: ReactNode | ({}) => ReactNode
+   contextualHelp?: ReactNode
+   defaultInputValue?: string
+   defaultItems?: Iterable<T>
+   defaultSelectedKey?: Key | null
+   dependencies?: ReadonlyArray<any>
+   description?: ReactNode
+   direction?: 'bottom' | 'top' = 'bottom'
+   disabledKeys?: Iterable<Key>
+   errorMessage?: ReactNode | (ValidationResult) => ReactNode
+   form?: string
+   formValue?: 'text' | 'key' = 'key'
+   id?: string
+   inputValue?: string
+   isDisabled?: boolean
+   isInvalid?: boolean
+   isReadOnly?: boolean
+   isRequired?: boolean
+   items?: Iterable<T>
+   label?: ReactNode
+   labelAlign?: Alignment = 'start'
+   labelPosition?: LabelPosition = 'top'
+   loadingState?: LoadingState
+   menuTrigger?: MenuTriggerAction = 'input'
+   menuWidth?: number
+   name?: string
+   necessityIndicator?: NecessityIndicator = 'icon'
+   onBlur?: (FocusEvent<HTMLInputElement>) => void
+   onFocus?: (FocusEvent<HTMLInputElement>) => void
+   onFocusChange?: (boolean) => void
+   onInputChange?: (string) => void
+   onKeyDown?: (KeyboardEvent) => void
+   onKeyUp?: (KeyboardEvent) => void
+   onLoadMore?: () => any
+   onOpenChange?: (boolean, MenuTriggerAction) => void
+   onSelectionChange?: (Key | null) => void
+   placeholder?: string
++  prefix?: ReactNode
+   selectedKey?: Key | null
+   shouldFlip?: boolean = true
+   shouldFocusWrap?: boolean
+   size?: 'S' | 'M' | 'L' | 'XL' = 'M'
+   styles?: StylesProp
+   validate?: (ComboBoxValidationValue<SelectionMode>) => ValidationError | boolean | null | undefined
+   validationBehavior?: 'native' | 'aria' = 'native'
+ }
+```
+
+
+#### /@react-spectrum/s2:LabeledValue
+```diff
++LabeledValue <T extends LabeledValueTypes> {
++  LabeledValue: LabeledValueProps
++}
+```
+
+
+#### /@react-spectrum/s2:LabeledValueContext
+```diff
++LabeledValueContext {
++  UNTYPED
++}
+```
+
+
+#### /@react-spectrum/s2:LabeledValueProps
+```diff
++LabeledValueProps {
++  L: undefined
++}
+```
+
+
+### @react-stately/color
+
+#### /@react-stately/color:ColorSliderState
+```diff
+ ColorSliderState {
+   decrementThumb: (number, number) => void
+   defaultValues: Array<number>
+   focusedThumb: number | undefined
+   getDisplayColor: () => Color
+-  getFormattedValue: (number) => string
++  getFormattedValue: (number | Array<number>) => string
+   getPercentValue: (number) => number
+   getThumbMaxValue: (number) => number
+   getThumbMinValue: (number) => number
+   getThumbPercent: (number) => number
+   getThumbValueLabel: (number) => string
+   getValuePercent: (number) => number
+   incrementThumb: (number, number) => void
+   isDisabled: boolean
+   isDragging: boolean
+   isThumbDragging: (number) => boolean
+   isThumbEditable: (number) => boolean
+   orientation: Orientation
+   pageSize: number
+   setFocusedThumb: (number | undefined) => void
+   setThumbDragging: (number, boolean) => void
+   setThumbEditable: (number, boolean) => void
+   setThumbPercent: (number, number) => void
+   setThumbValue: (number, number) => void
+   setValue: (string | Color) => void
+   step: number
+   value: Color
+   values: Array<number>
+ }
+```
+
+-----------------------------------
+
+
+ }
+```
+
+-----------------------------------
+
+
+### @react-stately/slider
+
+#### /@react-stately/slider:SliderState
+```diff
+ SliderState {
+   decrementThumb: (number, number) => void
+   defaultValues: Array<number>
+   focusedThumb: number | undefined
+-  getFormattedValue: (number) => string
++  getFormattedValue: (number | Array<number>) => string
+   getPercentValue: (number) => number
+   getThumbMaxValue: (number) => number
+   getThumbMinValue: (number) => number
+   getThumbPercent: (number) => number
+   getThumbValueLabel: (number) => string
+   getValuePercent: (number) => number
+   incrementThumb: (number, number) => void
+   isDisabled: boolean
+   isThumbDragging: (number) => boolean
+   isThumbEditable: (number) => boolean
+   orientation: Orientation
+   pageSize: number
+   setFocusedThumb: (number | undefined) => void
+   setThumbDragging: (number, boolean) => void
+   setThumbEditable: (number, boolean) => void
+   setThumbPercent: (number, number) => void
+   setThumbValue: (number, number) => void
+   step: number
+   values: Array<number>
+
+=== API CHANGES RELEASED SINCE LAST WEEK (were in last week's diff, now gone) ===
+   validationBehavior?: 'native' | 'aria' = 'native'
+   validate?: (number) => ValidationError | boolean | null | undefined
+   validationBehavior?: 'native' | 'aria' = 'native'
