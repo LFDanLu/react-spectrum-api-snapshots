@@ -1,0 +1,703 @@
+=== NEW API CHANGES THIS WEEK (not in last week's diff) ===
+#### /react-aria-components:GridLayout
+```diff
+ GridLayout <O extends GridLayoutOptions = GridLayoutOptions, T> {
+   getContentSize: () => Size
+   getDropTargetFromPoint: (number, number, (DropTarget) => boolean) => DropTarget
+   getDropTargetLayoutInfo: (ItemDropTarget) => LayoutInfo
+   getLayoutInfo: (Key) => LayoutInfo | null
+   getVisibleLayoutInfos: (Rect) => Array<LayoutInfo>
+   shouldInvalidate: (Rect, Rect) => boolean
+   shouldInvalidateLayoutOptions: (GridLayoutOptions, GridLayoutOptions) => boolean
+   update: (InvalidationContext<GridLayoutOptions>) => void
+   updateItemSize: (Key, Size) => boolean
++  useLayoutOptions: () => GridLayoutOptions
+   virtualizer: Virtualizer<{}, any> | null
+ }
+```
+
+
+#### /react-aria-components:TreeRenderProps
+```diff
+ TreeRenderProps {
+   allowsDragging: boolean
++  isDropTarget: boolean
+   isEmpty: boolean
+   isFocusVisible: boolean
+   isFocused: boolean
+   selectionMode: SelectionMode
+ }
+```
+
+
+#### /react-aria-components:TreeEmptyStateRenderProps
+```diff
+ TreeEmptyStateRenderProps {
+   allowsDragging: boolean
++  isDropTarget: boolean
+   isFocusVisible: boolean
+   isFocused: boolean
+   selectionMode: SelectionMode
+   state: TreeState<unknown>
+```
+
+
+#### /react-aria-components:GridLayoutOptions
+```diff
+ GridLayoutOptions {
++  direction?: 'ltr' | 'rtl' = 'ltr'
+   dropIndicatorThickness?: number = 2
+   loaderHeight?: number = 48
+   maxColumns?: number = Infinity
+   maxHorizontalSpace?: number = Infinity
+   minItemSize?: Size = 200 x 200
+   minSpace?: Size = 18 x 18
+   preserveAspectRatio?: boolean = false
+ }
+```
+
+
+### @react-aria/grid
+
+#### /@react-aria/grid:GridKeyboardDelegate
+```diff
+ GridKeyboardDelegate <C extends IGridCollection<T>, T> {
+   collection: IGridCollection<T>
+   constructor: (GridKeyboardDelegateOptions<IGridCollection<T>>) => void
+   getFirstKey: (Key, boolean) => Key | null
+-  getKeyAbove: (Key) => Key | null
+-  getKeyBelow: (Key) => Key | null
++  getKeyAbove: (Key, {
++    includeDisabled?: boolean
++}) => Key | null
++  getKeyBelow: (Key, {
++    includeDisabled?: boolean
++}) => Key | null
+   getKeyForSearch: (string, Key) => Key | null
+   getKeyLeftOf: (Key) => Key | null
+   getKeyPageAbove: (Key) => Key | null
+   getKeyPageBelow: (Key) => Key | null
+   getLastKey: (Key, boolean) => Key | null
+ }
+```
+
+-----------------------------------
+
+
+### @react-aria/selection
+
+#### /@react-aria/selection:ListKeyboardDelegate
+```diff
+ ListKeyboardDelegate <T> {
+   constructor: (Array<any>) => void
+   getFirstKey: () => Key | null
+-  getKeyAbove: (Key) => Key | null
+-  getKeyBelow: (Key) => Key | null
++  getKeyAbove: (Key, {
++    includeDisabled?: boolean
++}) => Key | null
++  getKeyBelow: (Key, {
++    includeDisabled?: boolean
++}) => Key | null
+   getKeyForSearch: (string, Key) => Key | null
+-  getKeyLeftOf: (Key) => Key | null
++  getKeyLeftOf: (Key, {
++    includeDisabled?: boolean
++}) => Key | null
+   getKeyPageAbove: (Key) => Key | null
+   getKeyPageBelow: (Key) => Key | null
+-  getKeyRightOf: (Key) => Key | null
++  getKeyRightOf: (Key, {
++    includeDisabled?: boolean
++}) => Key | null
+   getLastKey: () => Key | null
+-  getNextKey: (Key) => Key | null
+-  getPreviousKey: (Key) => Key | null
++  getNextKey: (Key, {
++    includeDisabled?: boolean
++}) => Key | null
++  getPreviousKey: (Key, {
++    includeDisabled?: boolean
++}) => Key | null
+ }
+```
+
+-----------------------------------
+
+
+#### /@react-spectrum/s2:ListView
+```diff
+ ListView <T extends {}> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children: ReactNode | ({}) => ReactNode
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+   disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   disallowTypeAhead?: boolean = false
++  dragAndDropHooks?: DragAndDropHooks<NoInfer<T>>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   hideLinkOutIcon?: boolean
+   id?: string
+   isQuiet?: boolean
+   loadingState?: LoadingState
+   onAction?: (Key) => void
+   onLoadMore?: () => void
+   onSelectionChange?: (Selection) => void
+   overflowMode?: 'wrap' | 'truncate' = 'truncate'
+   renderActionBar?: ('all' | Set<Key>) => ReactElement
+   renderEmptyState?: (GridListRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   selectionStyle?: 'highlight' | 'checkbox' = 'checkbox'
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   styles?: StylesPropWithHeight
+ }
+```
+
+
+#### /@react-spectrum/s2:TableView
+```diff
+ TableView {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children?: ReactNode
+   defaultExpandedKeys?: Iterable<Key>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   density?: 'compact' | 'spacious' | 'regular' = 'regular'
+   disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
++  dragAndDropHooks?: DragAndDropHooks
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   expandedKeys?: Iterable<Key>
+   id?: string
+   isQuiet?: boolean
+   onAction?: (Key) => void
+   onExpandedChange?: (Set<Key>) => any
+   onLoadMore?: () => any
+   onResize?: (Map<Key, ColumnSize>) => void
+   onResizeEnd?: (Map<Key, ColumnSize>) => void
+   onResizeStart?: (Map<Key, ColumnSize>) => void
+   onSelectionChange?: (Selection) => void
+   onSortChange?: (SortDescriptor) => any
+   overflowMode?: 'wrap' | 'truncate' = 'truncate'
+   renderActionBar?: ('all' | Set<Key>) => ReactElement
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   sortDescriptor?: SortDescriptor
+   styles?: StylesPropWithHeight
+   treeColumn?: Key
+ }
+```
+
+
+#### /@react-spectrum/s2:TreeView
+```diff
+ TreeView <T extends {}> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children?: ReactNode | (T) => ReactNode
+   defaultExpandedKeys?: Iterable<Key>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+   disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
++  dragAndDropHooks?: DragAndDropHooks<NoInfer<T>>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   expandedKeys?: Iterable<Key>
+   id?: string
+   items?: Iterable<T>
+   onExpandedChange?: (Set<Key>) => any
+   onSelectionChange?: (Selection) => void
+   renderActionBar?: ('all' | Set<Key>) => ReactElement
+   renderEmptyState?: (TreeEmptyStateRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   selectionStyle?: 'highlight' | 'checkbox' = 'checkbox'
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   styles?: StylesPropWithHeight
+ }
+```
+
+
+#### /@react-spectrum/s2:ListViewProps
+```diff
+ ListViewProps <T> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children: ReactNode | (T) => ReactNode
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+   disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   disallowTypeAhead?: boolean = false
++  dragAndDropHooks?: DragAndDropHooks<NoInfer<T>>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   hideLinkOutIcon?: boolean
+   id?: string
+   isQuiet?: boolean
+   loadingState?: LoadingState
+   onAction?: (Key) => void
+   onLoadMore?: () => void
+   onSelectionChange?: (Selection) => void
+   overflowMode?: 'wrap' | 'truncate' = 'truncate'
+   renderActionBar?: ('all' | Set<Key>) => ReactElement
+   renderEmptyState?: (GridListRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   selectionStyle?: 'highlight' | 'checkbox' = 'checkbox'
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   styles?: StylesPropWithHeight
+ }
+```
+
+
+#### /@react-spectrum/s2:TableViewProps
+```diff
+ TableViewProps {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children?: ReactNode
+   defaultExpandedKeys?: Iterable<Key>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   density?: 'compact' | 'spacious' | 'regular' = 'regular'
+   disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
++  dragAndDropHooks?: DragAndDropHooks
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   expandedKeys?: Iterable<Key>
+   id?: string
+   isQuiet?: boolean
+   onAction?: (Key) => void
+   onExpandedChange?: (Set<Key>) => any
+   onLoadMore?: () => any
+   onResize?: (Map<Key, ColumnSize>) => void
+   onResizeEnd?: (Map<Key, ColumnSize>) => void
+   onResizeStart?: (Map<Key, ColumnSize>) => void
+   onSelectionChange?: (Selection) => void
+   onSortChange?: (SortDescriptor) => any
+   overflowMode?: 'wrap' | 'truncate' = 'truncate'
+   renderActionBar?: ('all' | Set<Key>) => ReactElement
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   sortDescriptor?: SortDescriptor
+   styles?: StylesPropWithHeight
+   treeColumn?: Key
+ }
+```
+
+
+#### /@react-spectrum/s2:TreeViewProps
+```diff
+ TreeViewProps <T> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children?: ReactNode | (T) => ReactNode
+   defaultExpandedKeys?: Iterable<Key>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+   disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
++  dragAndDropHooks?: DragAndDropHooks<NoInfer<T>>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   expandedKeys?: Iterable<Key>
+   id?: string
+   items?: Iterable<T>
+   onExpandedChange?: (Set<Key>) => any
+   onSelectionChange?: (Selection) => void
+   renderActionBar?: ('all' | Set<Key>) => ReactElement
+   renderEmptyState?: (TreeEmptyStateRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   selectionStyle?: 'highlight' | 'checkbox' = 'checkbox'
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   styles?: StylesPropWithHeight
+ }
+```
+
+
+#### /@react-spectrum/s2:DragPreview
+```diff
++DragPreview {
++  children?: ReactNode
++  items: Array<DragItem>
++  overflowMode?: 'wrap' | 'truncate'
++}
+```
+
+
+#### /@react-spectrum/s2:DIRECTORY_DRAG_TYPE
+```diff
++DIRECTORY_DRAG_TYPE {
++  UNTYPED
++}
+```
+
+
+#### /@react-spectrum/s2:isDirectoryDropItem
+```diff
++isDirectoryDropItem {
++  dropItem: DropItem
++  returnVal: undefined
++}
+```
+
+
+#### /@react-spectrum/s2:isFileDropItem
+```diff
++isFileDropItem {
++  dropItem: DropItem
++  returnVal: undefined
++}
+```
+
+
+#### /@react-spectrum/s2:isTextDropItem
+```diff
++isTextDropItem {
++  dropItem: DropItem
++  returnVal: undefined
++}
+```
+
+
+#### /@react-spectrum/s2:useDragAndDrop
+```diff
++useDragAndDrop <T = {}> {
++  options: DragAndDropOptions<T>
++  returnVal: undefined
++}
+```
+
+
+#### /@react-spectrum/s2:DragPreviewProps
+```diff
++DragPreviewProps {
++  children?: ReactNode
++  items: Array<DragItem>
++  overflowMode?: 'wrap' | 'truncate'
++}
+```
+
+
+
+#### /@react-spectrum/s2:DragAndDropHooks
+```diff
++DragAndDropHooks {
++  D: undefined
++}
+```
+
+
+#### /@react-spectrum/s2:DragAndDropOptions
+```diff
++DragAndDropOptions <T = {}> {
++  acceptedDragTypes?: 'all' | Array<string | symbol> = 'all'
++  dropTargetDelegate?: DropTargetDelegate
++  getAllowedDropOperations?: () => Array<DropOperation>
++  getDropOperation?: (DropTarget, DragTypes, Array<DropOperation>) => DropOperation
++  getItems?: (Set<Key>, Array<T>) => Array<DragItem> = () => []
++  isDisabled?: boolean
++  onDragEnd?: (DraggableCollectionEndEvent) => void
++  onDragMove?: (DraggableCollectionMoveEvent) => void
++  onDragStart?: (DraggableCollectionStartEvent) => void
++  onDrop?: (DroppableCollectionDropEvent) => void
++  onDropActivate?: (DroppableCollectionActivateEvent) => void
++  onDropEnter?: (DroppableCollectionEnterEvent) => void
++  onDropExit?: (DroppableCollectionExitEvent) => void
++  onInsert?: (DroppableCollectionInsertDropEvent) => void
++  onItemDrop?: (DroppableCollectionOnItemDropEvent) => void
++  onMove?: (DroppableCollectionReorderEvent) => void
++  onReorder?: (DroppableCollectionReorderEvent) => void
++  onRootDrop?: (DroppableCollectionRootDropEvent) => void
++  renderDragPreview?: (Array<DragItem>) => JSX.Element | {
++    element: JSX.Element
++  x: number
++  y: number
++}
++  renderDropIndicator?: (DropTarget) => JSX.Element
++  shouldAcceptItemDrop?: (ItemDropTarget, DragTypes) => boolean
++}
+```
+
+
+#### /@react-spectrum/s2:DirectoryDropItem
+```diff
++DirectoryDropItem {
++  getEntries: () => AsyncIterable<FileDropItem | DirectoryDropItem>
++  kind: 'directory'
++  name: string
++}
+```
+
+
+#### /@react-spectrum/s2:DraggableCollectionEndEvent
+```diff
++DraggableCollectionEndEvent {
++  dropOperation: DropOperation
++  isInternal: boolean
++  keys: Set<Key>
++  type: 'dragend'
++  x: number
++  y: number
++}
+```
+
+
+#### /@react-spectrum/s2:DraggableCollectionMoveEvent
+```diff
++DraggableCollectionMoveEvent {
++  keys: Set<Key>
++  type: 'dragmove'
++  x: number
++  y: number
++}
+```
+
+
+#### /@react-spectrum/s2:DraggableCollectionStartEvent
+```diff
++DraggableCollectionStartEvent {
++  keys: Set<Key>
++  type: 'dragstart'
++  x: number
++  y: number
++}
+```
+
+
+#### /@react-spectrum/s2:DragPreviewRenderer
+```diff
++DragPreviewRenderer {
++  D: undefined
++}
+```
+
+
+#### /@react-spectrum/s2:DragTypes
+```diff
++DragTypes {
++  has: (string | symbol) => boolean
++}
+```
+
+
+#### /@react-spectrum/s2:DropItem
+```diff
++DropItem {
++  D: undefined
++}
+```
+
+
+#### /@react-spectrum/s2:DropOperation
+```diff
++DropOperation {
++  D: undefined
++}
+```
+
+
+#### /@react-spectrum/s2:DroppableCollectionDropEvent
+```diff
++DroppableCollectionDropEvent {
++  dropOperation: DropOperation
++  items: Array<DropItem>
++  target: DropTarget
++  type: 'drop'
++  x: number
++  y: number
++}
+```
+
+
+#### /@react-spectrum/s2:DroppableCollectionEnterEvent
+```diff
++DroppableCollectionEnterEvent {
++  target: DropTarget
++  type: 'dropenter'
++  x: number
++  y: number
++}
+```
+
+
+#### /@react-spectrum/s2:DroppableCollectionExitEvent
+```diff
++DroppableCollectionExitEvent {
++  target: DropTarget
++  type: 'dropexit'
++  x: number
++  y: number
++}
+```
+
+
+#### /@react-spectrum/s2:DroppableCollectionInsertDropEvent
+```diff
++DroppableCollectionInsertDropEvent {
++  dropOperation: DropOperation
++  items: Array<DropItem>
++  target: ItemDropTarget
++}
+```
+
+
+#### /@react-spectrum/s2:DroppableCollectionMoveEvent
+```diff
++DroppableCollectionMoveEvent {
++  target: DropTarget
++  type: 'dropmove'
++  x: number
++  y: number
++}
+```
+
+
+#### /@react-spectrum/s2:DroppableCollectionOnItemDropEvent
+```diff
++DroppableCollectionOnItemDropEvent {
++  dropOperation: DropOperation
++  isInternal: boolean
++  items: Array<DropItem>
++  target: ItemDropTarget
++}
+```
+
+
+#### /@react-spectrum/s2:DroppableCollectionReorderEvent
+```diff
++DroppableCollectionReorderEvent {
++  dropOperation: DropOperation
++  keys: Set<Key>
++  target: ItemDropTarget
++}
+```
+
+
+#### /@react-spectrum/s2:DroppableCollectionRootDropEvent
+```diff
++DroppableCollectionRootDropEvent {
++  dropOperation: DropOperation
++  items: Array<DropItem>
++}
+```
+
+
+#### /@react-spectrum/s2:DropPosition
+```diff
++DropPosition {
++  D: undefined
++}
+```
+
+
+#### /@react-spectrum/s2:DropTarget
+```diff
++DropTarget {
++  D: undefined
++}
+```
+
+
+#### /@react-spectrum/s2:FileDropItem
+```diff
++FileDropItem {
++  getFile: () => Promise<File>
++  getText: () => Promise<string>
++  kind: 'file'
++  name: string
++  type: string
++}
+```
+
+
+#### /@react-spectrum/s2:ItemDropTarget
+```diff
++ItemDropTarget {
++  dropPosition: DropPosition
++  key: Key
++  type: 'item'
++}
+```
+
+
+#### /@react-spectrum/s2:RootDropTarget
+```diff
++RootDropTarget {
++  type: 'root'
++}
+```
+
+
+#### /@react-spectrum/s2:TextDropItem
+```diff
++TextDropItem {
++  getText: (string) => Promise<string>
++  kind: 'text'
++  types: Set<string>
++}
+```
+
+ }
+```
+
+-----------------------------------
+
+
+### @react-stately/layout
+
+#### /@react-stately/layout:GridLayoutOptions
+```diff
+ GridLayoutOptions {
++  direction?: 'ltr' | 'rtl' = 'ltr'
+   dropIndicatorThickness?: number = 2
+   loaderHeight?: number = 48
+   maxColumns?: number = Infinity
+   maxHorizontalSpace?: number = Infinity
+   minItemSize?: Size = 200 x 200
+   minSpace?: Size = 18 x 18
+   preserveAspectRatio?: boolean = false
