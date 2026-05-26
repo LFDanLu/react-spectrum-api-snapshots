@@ -1,0 +1,2170 @@
+=== NEW API CHANGES THIS WEEK (not in last week's diff) ===
+#### /react-aria-components:Autocomplete
+```diff
+-Autocomplete <T extends {}> {
++Autocomplete <T> {
+   children: ReactNode
+   defaultInputValue?: string
+   disableAutoFocusFirst?: boolean = false
+   disableVirtualFocus?: boolean = false
+-  filter?: (string, string, Node<{}>) => boolean
++  filter?: (string, string, Node<T>) => boolean
+   inputValue?: string
+   onInputChange?: (string) => void
+   slot?: string | null
+ }
+```
+
+
+#### /react-aria-components:Breadcrumbs
+```diff
+-Breadcrumbs <T extends {}> {
++Breadcrumbs <T> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   children?: ReactNode | (T) => ReactNode
+   className?: string = 'react-aria-Breadcrumbs'
+   dependencies?: ReadonlyArray<any>
+   id?: string
+   isDisabled?: boolean
+   items?: Iterable<T>
+   onAction?: (Key) => void
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, undefined>
+   slot?: string | null
+   style?: CSSProperties
+ }
+```
+
+
+#### /react-aria-components:ComboBox
+```diff
+-ComboBox <M extends SelectionMode = 'single', T extends {}> {
++ComboBox <M extends SelectionMode = 'single', T> {
+   allowsCustomValue?: boolean
+   allowsEmptyCollection?: boolean
+   aria-describedby?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean
+   children?: ChildrenOrFunction<ComboBoxRenderProps>
+   className?: ClassNameOrFunction<ComboBoxRenderProps> = 'react-aria-ComboBox'
+   defaultFilter?: (string, string) => boolean
+   defaultInputValue?: string
+   defaultItems?: Iterable<T>
+   defaultValue?: ValueType<SelectionMode>
+   disabledKeys?: Iterable<Key>
+   form?: string
+   formValue?: 'text' | 'key' = 'key'
+   id?: string
+   inputValue?: string
+   isDisabled?: boolean
+   isInvalid?: boolean
+   isReadOnly?: boolean
+   isRequired?: boolean
+   items?: Iterable<T>
+   menuTrigger?: MenuTriggerAction = 'input'
+   name?: string
+   onBlur?: (FocusEvent<HTMLInputElement>) => void
+   onChange?: (ChangeValueType<SelectionMode>) => void
+   onFocus?: (FocusEvent<HTMLInputElement>) => void
+   onFocusChange?: (boolean) => void
+   onInputChange?: (string) => void
+   onKeyDown?: (KeyboardEvent) => void
+   onKeyUp?: (KeyboardEvent) => void
+   onOpenChange?: (boolean, MenuTriggerAction) => void
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, ComboBoxRenderProps>
+   selectionMode?: SelectionMode = 'single'
+   shouldFocusWrap?: boolean
+   slot?: string | null
+   style?: StyleOrFunction<ComboBoxRenderProps>
+   validate?: (ComboBoxValidationValue<SelectionMode>) => ValidationError | boolean | null | undefined
+   validationBehavior?: 'native' | 'aria' = 'native'
+   value?: ValueType<SelectionMode>
+ }
+```
+
+
+#### /react-aria-components:ComboBoxValue
+```diff
+-ComboBoxValue <T extends {}> extends HTMLAttributes {
++ComboBoxValue <T> extends HTMLAttributes {
+-  children?: ChildrenOrFunction<ComboBoxValueRenderProps<{}>>
+-  className?: ClassNameOrFunction<ComboBoxValueRenderProps<{}>> = 'react-aria-ComboBoxValue'
++  children?: ChildrenOrFunction<ComboBoxValueRenderProps<T>>
++  className?: ClassNameOrFunction<ComboBoxValueRenderProps<T>> = 'react-aria-ComboBoxValue'
+   placeholder?: ReactNode
+-  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, ComboBoxValueRenderProps<{}>>
+-  style?: StyleOrFunction<ComboBoxValueRenderProps<{}>>
++  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, ComboBoxValueRenderProps<T>>
++  style?: StyleOrFunction<ComboBoxValueRenderProps<T>>
+ }
+```
+
+
+#### /react-aria-components:GridList
+```diff
+-GridList <T extends {}> {
++GridList <T> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+-  children?: ReactNode | ({}) => ReactNode
++  children?: ReactNode | (T) => ReactNode
+   className?: ClassNameOrFunction<GridListRenderProps> = 'react-aria-GridList'
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+   disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   disallowTypeAhead?: boolean = false
+-  dragAndDropHooks?: DragAndDropHooks<NoInfer<{}>>
++  dragAndDropHooks?: DragAndDropHooks<NoInfer<T>>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   id?: string
+   items?: Iterable<T>
+   keyboardNavigationBehavior?: 'arrow' | 'tab' = 'arrow'
+   onAction?: (Key) => void
+   onSelectionChange?: (Selection) => void
+   orientation?: Orientation = 'vertical'
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, GridListRenderProps>
+   renderEmptyState?: (GridListRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionBehavior?: SelectionBehavior = 'toggle'
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   style?: StyleOrFunction<GridListRenderProps>
+ }
+```
+
+
+#### /react-aria-components:GridListItem
+```diff
+-GridListItem <T extends {}> {
++GridListItem <T> {
+   children?: ChildrenOrFunction<GridListItemRenderProps>
+   className?: ClassNameOrFunction<GridListItemRenderProps> = 'react-aria-GridListItem'
+   download?: boolean | string
+   href?: Href
+   hrefLang?: string
+   id?: Key
+   isDisabled?: boolean
+   onAction?: () => void
+   onClick?: (MouseEvent<FocusableElement>) => void
+   onHoverChange?: (boolean) => void
+   onHoverEnd?: (HoverEvent) => void
+   onHoverStart?: (HoverEvent) => void
+   onPress?: (PressEvent) => void
+   onPressChange?: (boolean) => void
+   onPressEnd?: (PressEvent) => void
+   onPressStart?: (PressEvent) => void
+   onPressUp?: (PressEvent) => void
+   ping?: string
+   referrerPolicy?: HTMLAttributeReferrerPolicy
+   rel?: string
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, GridListItemRenderProps>
+   routerOptions?: RouterOptions
+   style?: StyleOrFunction<GridListItemRenderProps>
+   target?: HTMLAttributeAnchorTarget
+   textValue?: string
+-  value?: {}
++  value?: T
+ }
+```
+
+
+#### /react-aria-components:GridListSection
+```diff
+-GridListSection <T extends {}> {
++GridListSection <T extends any> {
+   aria-label?: string
+-  children?: ReactNode | ({}) => ReactElement
++  children?: ReactNode | (any) => ReactElement
+   className?: string = 'react-aria-GridListSection'
+   dependencies?: ReadonlyArray<any>
+   id?: Key
+-  items?: Iterable<{}>
++  items?: Iterable<any>
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, undefined>
+   style?: CSSProperties
+-  value?: {}
++  value?: any
+ }
+```
+
+
+#### /react-aria-components:Section
+```diff
+-Section <T extends {}> {
++Section <T extends any> {
+   aria-label?: string
+-  children?: ReactNode | ({}) => ReactElement
++  children?: ReactNode | (any) => ReactElement
+   className?: string
+   dependencies?: ReadonlyArray<any>
+   id?: Key
+   items?: Iterable<T>
+   style?: CSSProperties
+-  value?: {}
++  value?: any
+ }
+```
+
+
+#### /react-aria-components:Collection
+```diff
+-Collection <T extends {}> {
++Collection <T> {
+   addIdAndValue?: boolean
+-  children?: ReactNode | ({}) => ReactNode
++  children?: ReactNode | (T) => ReactNode
+   dependencies?: ReadonlyArray<any>
+   idScope?: Key
+-  items?: Iterable<{}>
++  items?: Iterable<T>
+ }
+```
+
+
+#### /react-aria-components:createBranchComponent
+```diff
+ createBranchComponent <E extends Element, P extends {
+     children?: any
+-}, T extends {}> {
++}, T> {
+   CollectionNodeClass: {}<any> | string
+   render: (P, ForwardedRef<E>, Node<T>) => ReactElement | null
+   useChildren: (P) => ReactNode
+ }
+```
+
+
+#### /react-aria-components:CollectionBuilder
+```diff
+-CollectionBuilder <C extends BaseCollection<{}>> {
++CollectionBuilder <C extends BaseCollection<any>> {
+-  children: (BaseCollection<{}>) => ReactNode
++  children: (BaseCollection<any>) => ReactNode
+   content: ReactNode
+-  createCollection?: () => BaseCollection<{}>
++  createCollection?: () => BaseCollection<any>
+ }
+```
+
+
+#### /react-aria-components:ListBox
+```diff
+-ListBox <T extends {}> {
++ListBox <T> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+-  children?: ReactNode | ({}) => ReactNode
++  children?: ReactNode | (T) => ReactNode
+   className?: ClassNameOrFunction<ListBoxRenderProps> = 'react-aria-ListBox'
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+-  dragAndDropHooks?: DragAndDropHooks<NoInfer<{}>>
++  dragAndDropHooks?: DragAndDropHooks<NoInfer<T>>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   id?: string
+   items?: Iterable<T>
+   layout?: 'stack' | 'grid' = 'stack'
+   onBlur?: (FocusEvent<Target>) => void
+   onFocus?: (FocusEvent<Target>) => void
+   onFocusChange?: (boolean) => void
+   onSelectionChange?: (Selection) => void
+   orientation?: Orientation = 'vertical'
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, ListBoxRenderProps>
+   renderEmptyState?: (ListBoxRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionBehavior?: SelectionBehavior = 'toggle'
+   selectionMode?: SelectionMode
+   shouldFocusOnHover?: boolean
+   shouldFocusWrap?: boolean
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   style?: StyleOrFunction<ListBoxRenderProps>
+ }
+```
+
+
+#### /react-aria-components:ListBoxItem
+```diff
+-ListBoxItem <T extends {}> {
++ListBoxItem <T> {
+   aria-label?: string
+   children?: ChildrenOrFunction<T>
+   className?: ClassNameOrFunction<ListBoxItemRenderProps> = 'react-aria-ListBoxItem'
+   download?: boolean | string
+   href?: Href
+   hrefLang?: string
+   id?: Key
+   isDisabled?: boolean
+   onAction?: () => void
+   onBlur?: (FocusEvent<HTMLDivElement>) => void
+   onClick?: (MouseEvent<FocusableElement>) => void
+   onFocus?: (FocusEvent<HTMLDivElement>) => void
+   onFocusChange?: (boolean) => void
+   onHoverChange?: (boolean) => void
+   onHoverEnd?: (HoverEvent) => void
+   onHoverStart?: (HoverEvent) => void
+   onKeyDown?: (KeyboardEvent) => void
+   onKeyUp?: (KeyboardEvent) => void
+   onPress?: (PressEvent) => void
+   onPressChange?: (boolean) => void
+   onPressEnd?: (PressEvent) => void
+   onPressStart?: (PressEvent) => void
+   onPressUp?: (PressEvent) => void
+   ping?: string
+   referrerPolicy?: HTMLAttributeReferrerPolicy
+   rel?: string
+   render?: (DetailedHTMLProps<LinkWithRequiredHref, HTMLAnchorElement> | React.JSX.IntrinsicElements[keyof React.JSX.IntrinsicElements], ListBoxItemRenderProps) => ReactElement
+   routerOptions?: RouterOptions
+   style?: StyleOrFunction<T>
+   target?: HTMLAttributeAnchorTarget
+   textValue?: string
+-  value?: {}
++  value?: T
+ }
+```
+
+
+#### /react-aria-components:ListBoxSection
+```diff
+-ListBoxSection <T extends {}> {
++ListBoxSection <T> {
+   aria-label?: string
+-  children?: ReactNode | ({}) => ReactElement
++  children?: ReactNode | (T) => ReactElement
+   className?: string = 'react-aria-ListBoxSection'
+   dependencies?: ReadonlyArray<any>
+   id?: Key
+-  items?: Iterable<{}>
++  items?: Iterable<T>
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, undefined>
+   style?: CSSProperties
+-  value?: {}
++  value?: T
+ }
+```
+
+
+#### /react-aria-components:Menu
+```diff
+-Menu <T extends {}> {
++Menu <T> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+-  children?: ReactNode | ({}) => ReactNode
++  children?: ReactNode | (T) => ReactNode
+   className?: ClassNameOrFunction<MenuRenderProps> = 'react-aria-Menu'
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+   disabledKeys?: Iterable<Key>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   id?: string
+   items?: Iterable<T>
+   onAction?: (Key) => void
+   onClose?: () => void
+   onSelectionChange?: (Selection) => void
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, MenuRenderProps>
+   renderEmptyState?: () => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   shouldCloseOnSelect?: boolean
+   shouldFocusWrap?: boolean
+   slot?: string | null
+   style?: StyleOrFunction<MenuRenderProps>
+ }
+```
+
+
+#### /react-aria-components:MenuItem
+```diff
+-MenuItem <T extends {}> {
++MenuItem <T> {
+   aria-label?: string
+   children?: ChildrenOrFunction<T>
+   className?: ClassNameOrFunction<MenuItemRenderProps> = 'react-aria-MenuItem'
+   download?: boolean | string
+   href?: Href
+   hrefLang?: string
+   id?: Key
+   isDisabled?: boolean
+   onAction?: () => void
+   onBlur?: (FocusEvent<Target>) => void
+   onClick?: (MouseEvent<FocusableElement>) => void
+   onFocus?: (FocusEvent<Target>) => void
+   onFocusChange?: (boolean) => void
+   onHoverChange?: (boolean) => void
+   onHoverEnd?: (HoverEvent) => void
+   onHoverStart?: (HoverEvent) => void
+   onPress?: (PressEvent) => void
+   onPressChange?: (boolean) => void
+   onPressEnd?: (PressEvent) => void
+   onPressStart?: (PressEvent) => void
+   onPressUp?: (PressEvent) => void
+   ping?: string
+   referrerPolicy?: HTMLAttributeReferrerPolicy
+   rel?: string
+   render?: (DetailedHTMLProps<LinkWithRequiredHref, HTMLAnchorElement> | React.JSX.IntrinsicElements[keyof React.JSX.IntrinsicElements], MenuItemRenderProps) => ReactElement
+   routerOptions?: RouterOptions
+   shouldCloseOnSelect?: boolean
+   style?: StyleOrFunction<T>
+   target?: HTMLAttributeAnchorTarget
+   textValue?: string
+-  value?: {}
++  value?: T
+ }
+```
+
+
+-MenuSection <T extends {}> {
++MenuSection <T> {
+-  children?: ReactNode | ({}) => ReactElement
++  children?: ReactNode | (T) => ReactElement
+-  items?: Iterable<{}>
++  items?: Iterable<T>
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, undefined>
+-  value?: {}
++  value?: T
+#### /react-aria-components:Select
+```diff
+-Select <M extends SelectionMode = 'single', T extends {} = {
+-  
+-}> {
++Select <M extends SelectionMode = 'single', T> {
+   allowsEmptyCollection?: boolean
+   aria-describedby?: string
+   aria-details?: string
+   aria-labelledby?: string
+   autoComplete?: string
+   autoFocus?: boolean
+   children?: ChildrenOrFunction<SelectRenderProps>
+   className?: ClassNameOrFunction<SelectRenderProps> = 'react-aria-Select'
+   defaultOpen?: boolean
+   defaultValue?: ValueType<SelectionMode>
+   disabledKeys?: Iterable<Key>
+   excludeFromTabOrder?: boolean
+   form?: string
+   id?: string
+   isDisabled?: boolean
+   isInvalid?: boolean
+   isOpen?: boolean
+   isRequired?: boolean
+   name?: string
+   onBlur?: (FocusEvent<Target>) => void
+   onChange?: (ChangeValueType<SelectionMode>) => void
+   onFocus?: (FocusEvent<Target>) => void
+   onFocusChange?: (boolean) => void
+   onKeyDown?: (KeyboardEvent) => void
+   onKeyUp?: (KeyboardEvent) => void
+   onOpenChange?: (boolean) => void
+   placeholder?: string = 'Select an item' (localized)
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, SelectRenderProps>
+   selectionMode?: SelectionMode = 'single'
+   shouldCloseOnSelect?: boolean
+   slot?: string | null
+   style?: StyleOrFunction<SelectRenderProps>
+   validate?: (ValidationType<SelectionMode>) => ValidationError | boolean | null | undefined
+   validationBehavior?: 'native' | 'aria' = 'native'
+   value?: ValueType<SelectionMode>
+ }
+```
+
+
+#### /react-aria-components:SelectValue
+```diff
+-SelectValue <T extends {}> extends HTMLAttributes {
++SelectValue <T> extends HTMLAttributes {
+-  children?: ChildrenOrFunction<SelectValueRenderProps<{}>>
+-  className?: ClassNameOrFunction<SelectValueRenderProps<{}>> = 'react-aria-SelectValue'
+-  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, SelectValueRenderProps<{}>>
+-  style?: StyleOrFunction<SelectValueRenderProps<{}>>
++  children?: ChildrenOrFunction<SelectValueRenderProps<T>>
++  className?: ClassNameOrFunction<SelectValueRenderProps<T>> = 'react-aria-SelectValue'
++  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, SelectValueRenderProps<T>>
++  style?: StyleOrFunction<SelectValueRenderProps<T>>
+ }
+```
+
+
+-Row <T extends {}> {
++Row <T extends any> {
+-  children?: ReactNode | ({}) => ReactElement
++  children?: ReactNode | (any) => ReactElement
+-  columns?: Iterable<{}>
++  columns?: Iterable<any>
+   id?: Key
+-  value?: {}
++  value?: any
+ }
+```
+
+
+#### /react-aria-components:TableHeader
+```diff
+-TableHeader <T extends {}> {
++TableHeader <T extends any> {
+-  children?: ReactNode | ({}) => ReactElement
++  children?: ReactNode | (any) => ReactElement
+   className?: ClassNameOrFunction<TableHeaderRenderProps> = 'react-aria-TableHeader'
+-  columns?: Iterable<{}>
++  columns?: Iterable<any>
+   dependencies?: ReadonlyArray<any>
+   onHoverChange?: (boolean) => void
+   onHoverEnd?: (HoverEvent) => void
+   onHoverStart?: (HoverEvent) => void
+   style?: StyleOrFunction<TableHeaderRenderProps>
+ }
+```
+
+
+#### /react-aria-components:TableBody
+```diff
+-TableBody <T extends {}> {
++TableBody <T extends any> {
+   children?: ReactNode | (T) => ReactNode
+   className?: ClassNameOrFunction<TableBodyRenderProps> = 'react-aria-TableBody'
+   dependencies?: ReadonlyArray<any>
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, TableBodyRenderProps>
+   renderEmptyState?: (TableBodyRenderProps) => ReactNode
+   style?: StyleOrFunction<TableBodyRenderProps>
+ }
+```
+
+
+#### /react-aria-components:TabList
+```diff
+-TabList <T extends {}> {
++TabList <T> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   children?: ReactNode | (T) => ReactNode
+   className?: ClassNameOrFunction<TabListRenderProps> = 'react-aria-TabList'
+   dependencies?: ReadonlyArray<any>
+   items?: Iterable<T>
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, TabListRenderProps>
+   style?: StyleOrFunction<TabListRenderProps>
+ }
+```
+
+
+#### /react-aria-components:TabPanels
+```diff
+-TabPanels <T extends {}> {
++TabPanels <T> {
+   children?: ReactNode | (T) => ReactNode
+   className?: string = 'react-aria-TabPanels'
+   dependencies?: ReadonlyArray<any>
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, undefined>
+   style?: CSSProperties
+ }
+```
+
+
+#### /react-aria-components:TagList
+```diff
+-TagList <T extends {}> {
++TagList <T> {
+   children?: ReactNode | (T) => ReactNode
+   className?: ClassNameOrFunction<TagListRenderProps> = 'react-aria-TagList'
+   dependencies?: ReadonlyArray<any>
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, TagListRenderProps>
+   renderEmptyState?: (TagListRenderProps) => ReactNode
+   style?: StyleOrFunction<TagListRenderProps>
+#### /react-aria-components:TreeLoadMoreItem
+```diff
+-TreeLoadMoreItem <T extends {}> {
++TreeLoadMoreItem <T> {
+   children?: ChildrenOrFunction<TreeLoadMoreItemRenderProps>
+   className?: ClassNameOrFunction<TreeLoadMoreItemRenderProps> = 'react-aria-TreeLoadMoreItem'
+   isLoading?: boolean
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, TreeLoadMoreItemRenderProps>
+   scrollOffset?: number = 1
+   style?: StyleOrFunction<TreeLoadMoreItemRenderProps>
+ }
+```
+
+
+#### /react-aria-components:Tree
+```diff
+-Tree <T extends {}> {
++Tree <T> {
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+-  children?: ReactNode | ({}) => ReactNode
++  children?: ReactNode | (T) => ReactNode
+   className?: ClassNameOrFunction<TreeRenderProps> = 'react-aria-Tree'
+   defaultExpandedKeys?: Iterable<Key>
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   dependencies?: ReadonlyArray<any>
+   disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+-  dragAndDropHooks?: DragAndDropHooks<NoInfer<{}>>
++  dragAndDropHooks?: DragAndDropHooks<NoInfer<T>>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   expandedKeys?: Iterable<Key>
+   id?: string
+   items?: Iterable<T>
+   onExpandedChange?: (Set<Key>) => any
+   onSelectionChange?: (Selection) => void
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, TreeRenderProps>
+   renderEmptyState?: (TreeEmptyStateRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionBehavior?: SelectionBehavior = 'toggle'
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+   slot?: string | null
+   style?: StyleOrFunction<TreeRenderProps>
+ }
+```
+
+
+#### /react-aria-components:TreeItem
+```diff
+-TreeItem <T extends {}> {
++TreeItem <T extends any> {
+   aria-label?: string
+   children: ReactNode
+   className?: ClassNameOrFunction<TreeItemRenderProps> = 'react-aria-TreeItem'
+   download?: boolean | string
+   hasChildItems?: boolean
+   href?: Href
+   hrefLang?: string
+   id?: Key
+   isDisabled?: boolean
+   onAction?: () => void
+   onClick?: (MouseEvent<FocusableElement>) => void
+   onHoverChange?: (boolean) => void
+   onHoverEnd?: (HoverEvent) => void
+   onHoverStart?: (HoverEvent) => void
+   onPress?: (PressEvent) => void
+   onPressChange?: (boolean) => void
+   onPressEnd?: (PressEvent) => void
+   onPressStart?: (PressEvent) => void
+   onPressUp?: (PressEvent) => void
+   ping?: string
+   referrerPolicy?: HTMLAttributeReferrerPolicy
+   rel?: string
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, TreeItemRenderProps>
+   routerOptions?: RouterOptions
+   style?: StyleOrFunction<TreeItemRenderProps>
+   target?: HTMLAttributeAnchorTarget
+   textValue: string
+-  value?: {}
++  value?: any
+ }
+```
+
+
+#### /react-aria-components:TreeSection
+```diff
+-TreeSection <T extends {}> {
++TreeSection <T extends any> {
+   aria-label?: string
+-  children?: ReactNode | ({}) => ReactElement
++  children?: ReactNode | (any) => ReactElement
+   className?: string
+   dependencies?: ReadonlyArray<any>
+   id?: Key
+-  items?: Iterable<{}>
++  items?: Iterable<any>
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, undefined>
+   style?: CSSProperties
+-  value?: {}
++  value?: any
+ }
+```
+
+
+#### /react-aria-components:ComboBoxProps
+```diff
+-ComboBoxProps <M extends SelectionMode = 'single', T extends {}> {
++ComboBoxProps <M extends SelectionMode = 'single', T> {
+   allowsCustomValue?: boolean
+   allowsEmptyCollection?: boolean
+   aria-describedby?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean
+   children?: ChildrenOrFunction<ComboBoxRenderProps>
+   className?: ClassNameOrFunction<ComboBoxRenderProps> = 'react-aria-ComboBox'
+   defaultFilter?: (string, string) => boolean
+   defaultInputValue?: string
+   defaultItems?: Iterable<T>
+   defaultValue?: ValueType<SelectionMode>
+   disabledKeys?: Iterable<Key>
+   form?: string
+   formValue?: 'text' | 'key' = 'key'
+   id?: string
+   inputValue?: string
+   isDisabled?: boolean
+   isInvalid?: boolean
+   isReadOnly?: boolean
+   isRequired?: boolean
+   items?: Iterable<T>
+   menuTrigger?: MenuTriggerAction = 'input'
+   name?: string
+   onBlur?: (FocusEvent<HTMLInputElement>) => void
+   onChange?: (ChangeValueType<SelectionMode>) => void
+   onFocus?: (FocusEvent<HTMLInputElement>) => void
+   onFocusChange?: (boolean) => void
+   onInputChange?: (string) => void
+   onKeyDown?: (KeyboardEvent) => void
+   onKeyUp?: (KeyboardEvent) => void
+   onOpenChange?: (boolean, MenuTriggerAction) => void
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, ComboBoxRenderProps>
+   selectionMode?: SelectionMode = 'single'
+   shouldFocusWrap?: boolean
+   slot?: string | null
+   style?: StyleOrFunction<ComboBoxRenderProps>
+   validate?: (ComboBoxValidationValue<SelectionMode>) => ValidationError | boolean | null | undefined
+   validationBehavior?: 'native' | 'aria' = 'native'
+   value?: ValueType<SelectionMode>
+ }
+```
+
+
+#### /react-aria-components:ComboBoxValueProps
+```diff
+-ComboBoxValueProps <T extends {}> {
++ComboBoxValueProps <T> {
+-  children?: ChildrenOrFunction<ComboBoxValueRenderProps<{}>>
+-  className?: ClassNameOrFunction<ComboBoxValueRenderProps<{}>> = 'react-aria-ComboBoxValue'
++  children?: ChildrenOrFunction<ComboBoxValueRenderProps<T>>
++  className?: ClassNameOrFunction<ComboBoxValueRenderProps<T>> = 'react-aria-ComboBoxValue'
+   placeholder?: ReactNode
+-  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, ComboBoxValueRenderProps<{}>>
+-  style?: StyleOrFunction<ComboBoxValueRenderProps<{}>>
++  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, ComboBoxValueRenderProps<T>>
++  style?: StyleOrFunction<ComboBoxValueRenderProps<T>>
+ }
+```
+
+
+#### /react-aria-components:GridListItemRenderProps
+```diff
+ GridListItemRenderProps {
+   allowsDragging?: boolean
+   id?: Key
+   isDisabled: boolean
+   isDragging?: boolean
+   isDropTarget?: boolean
+   isFocusVisible: boolean
++  isFocusVisibleWithin: boolean
+   isFocused: boolean
+   isHovered: boolean
+   isPressed: boolean
+   isSelected: boolean
+   selectionMode: SelectionMode
+   state: ListState<unknown>
+ }
+```
+
+
+#### /react-aria-components:SelectProps
+```diff
+-SelectProps <M extends SelectionMode = 'single', T extends {} = {
+-  
+-}> {
++SelectProps <M extends SelectionMode = 'single', T> {
+   allowsEmptyCollection?: boolean
+   aria-describedby?: string
+   aria-details?: string
+   aria-labelledby?: string
+   autoComplete?: string
+   autoFocus?: boolean
+   children?: ChildrenOrFunction<SelectRenderProps>
+   className?: ClassNameOrFunction<SelectRenderProps> = 'react-aria-Select'
+   defaultOpen?: boolean
+   defaultValue?: ValueType<SelectionMode>
+   disabledKeys?: Iterable<Key>
+   excludeFromTabOrder?: boolean
+   form?: string
+   id?: string
+   isDisabled?: boolean
+   isInvalid?: boolean
+   isOpen?: boolean
+   isRequired?: boolean
+   name?: string
+   onBlur?: (FocusEvent<Target>) => void
+   onChange?: (ChangeValueType<SelectionMode>) => void
+   onFocus?: (FocusEvent<Target>) => void
+   onFocusChange?: (boolean) => void
+   onKeyDown?: (KeyboardEvent) => void
+   onKeyUp?: (KeyboardEvent) => void
+   onOpenChange?: (boolean) => void
+   placeholder?: string = 'Select an item' (localized)
+   render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, SelectRenderProps>
+   selectionMode?: SelectionMode = 'single'
+   shouldCloseOnSelect?: boolean
+   slot?: string | null
+   style?: StyleOrFunction<SelectRenderProps>
+   validate?: (ValidationType<SelectionMode>) => ValidationError | boolean | null | undefined
+   validationBehavior?: 'native' | 'aria' = 'native'
+   value?: ValueType<SelectionMode>
+ }
+```
+
+
+#### /react-aria-components:SelectValueProps
+```diff
+-SelectValueProps <T extends {}> {
++SelectValueProps <T> {
+-  children?: ChildrenOrFunction<SelectValueRenderProps<{}>>
+-  className?: ClassNameOrFunction<SelectValueRenderProps<{}>> = 'react-aria-SelectValue'
+-  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, SelectValueRenderProps<{}>>
+-  style?: StyleOrFunction<SelectValueRenderProps<{}>>
++  children?: ChildrenOrFunction<SelectValueRenderProps<T>>
++  className?: ClassNameOrFunction<SelectValueRenderProps<T>> = 'react-aria-SelectValue'
++  render?: DOMRenderFunction<keyof React.JSX.IntrinsicElements, SelectValueRenderProps<T>>
++  style?: StyleOrFunction<SelectValueRenderProps<T>>
+ }
+```
+
+
+#### /react-aria-components:RowRenderProps
+```diff
+ RowRenderProps {
+   allowsDragging?: boolean
+   hasChildItems: boolean
+   id?: Key
+   isDisabled: boolean
+   isDragging?: boolean
+   isDropTarget?: boolean
+   isExpanded: boolean
+   isFocusVisible: boolean
+   isFocusVisibleWithin: boolean
+   isFocused: boolean
+   isHovered: boolean
+   isPressed: boolean
+   isSelected: boolean
+   level: number
+   selectionBehavior: SelectionBehavior
+   selectionMode: SelectionMode
++  state: TableState<unknown>
+ }
+```
+
+
+#### /react-aria-components:CellRenderProps
+```diff
+ CellRenderProps {
+   columnIndex?: number | null
+   hasChildItems: boolean
+   id?: Key
+   isDisabled: boolean
+   isExpanded: boolean
+   isFocusVisible: boolean
++  isFocusVisibleWithinRow: boolean
+   isFocused: boolean
+   isHovered: boolean
+   isPressed: boolean
+   isSelected: boolean
+   level: number
+ }
+```
+
+
++TableFooter <T extends any> {
+### @react-aria/collections
+
+#### /@react-aria/collections:CollectionBuilder
+```diff
+-CollectionBuilder <C extends BaseCollection<{}>> {
++CollectionBuilder <C extends BaseCollection<any>> {
+-  children: (BaseCollection<{}>) => ReactNode
++  children: (BaseCollection<any>) => ReactNode
+   content: ReactNode
+-  createCollection?: () => BaseCollection<{}>
++  createCollection?: () => BaseCollection<any>
+ }
+```
+
+
+#### /@react-aria/collections:createBranchComponent
+```diff
+ createBranchComponent <E extends Element, P extends {
+     children?: any
+-}, T extends {}> {
++}, T> {
+   CollectionNodeClass: {}<any> | string
+   render: (P, ForwardedRef<E>, Node<T>) => ReactElement | null
+   useChildren: (P) => ReactNode
+ }
+```
+
+
+#### /@react-aria/collections:Collection
+```diff
+-Collection <T extends {}> {
++Collection <T> {
+   addIdAndValue?: boolean
+-  children?: ReactNode | ({}) => ReactNode
++  children?: ReactNode | (T) => ReactNode
+   dependencies?: ReadonlyArray<any>
+   idScope?: Key
+-  items?: Iterable<{}>
++  items?: Iterable<T>
+ }
+```
+
+
+#### /@react-aria/collections:useCachedChildren
+```diff
+-useCachedChildren <T extends {}> {
++useCachedChildren <T> {
+   props: CachedChildrenOptions<T>
+   returnVal: undefined
+ }
+```
+
+
+#### /@react-aria/collections:CollectionBuilderProps
+```diff
+-CollectionBuilderProps <C extends BaseCollection<{}>> {
++CollectionBuilderProps <C extends BaseCollection<any>> {
+-  children: (BaseCollection<{}>) => ReactNode
++  children: (BaseCollection<any>) => ReactNode
+   content: ReactNode
+-  createCollection?: () => BaseCollection<{}>
++  createCollection?: () => BaseCollection<any>
+ }
+```
+
+-----------------------------------
+
+
+### @react-aria/test-utils
+
+#### /@react-aria/test-utils:CheckboxGroupTester
+```diff
+ CheckboxGroupTester {
+-  checkboxes: Array<HTMLElement>
+-  checkboxgroup: HTMLElement
+   constructor: (CheckboxGroupTesterOpts) => void
+   findCheckbox: ({
+-    checkboxIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  selectedCheckboxes: Array<HTMLElement>
++  getCheckboxGroup: () => HTMLElement
++  getCheckboxes: () => Array<HTMLElement>
++  getSelectedCheckboxes: () => Array<HTMLElement>
+   setInteractionType: (UserOpts['interactionType']) => void
+   toggleCheckbox: (TriggerCheckboxOptions) => Promise<void>
+ }
+```
+
+
+#### /@react-aria/test-utils:ComboBoxTester
+```diff
+ ComboBoxTester {
+   close: () => Promise<void>
+-  combobox: HTMLElement
+   constructor: (ComboBoxTesterOpts) => void
+   findOption: ({
+-    optionIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  focusedOption: HTMLElement | null
+-  listbox: HTMLElement | null
+-  open: (ComboBoxOpenOpts) => Promise<void>
+-  options: ({
++  getCombobox: () => HTMLElement
++  getFocusedOption: () => HTMLElement | null
++  getListbox: () => HTMLElement | null
++  getOptions: ({
+     element?: HTMLElement
+ }) => Array<HTMLElement>
+-  sections: Array<HTMLElement>
+-  selectOption: (ComboBoxSelectOpts) => Promise<void>
++  getSections: () => Array<HTMLElement>
++  getTrigger: () => HTMLElement
++  open: (ComboBoxOpenOpts) => Promise<void>
+   setInteractionType: (UserOpts['interactionType']) => void
+-  trigger: HTMLElement
++  toggleOptionSelection: (ComboBoxSelectOpts) => Promise<void>
+ }
+```
+
+
+#### /@react-aria/test-utils:DialogTester
+```diff
+ DialogTester {
+   close: () => Promise<void>
+   constructor: (DialogTesterOpts) => void
+-  dialog: HTMLElement | null
++  getDialog: () => HTMLElement | null
++  getTrigger: () => HTMLElement
+   open: (DialogOpenOpts) => Promise<void>
+   setInteractionType: (UserOpts['interactionType']) => void
+-  trigger: HTMLElement
+ }
+```
+
+
+#### /@react-aria/test-utils:GridListTester
+```diff
+ GridListTester {
+-  cells: ({
+-    element?: HTMLElement
+-}) => Array<HTMLElement>
+   constructor: (GridListTesterOpts) => void
+   findRow: ({
+-    rowIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  gridlist: HTMLElement
+-  rows: Array<HTMLElement>
+-  selectedRows: Array<HTMLElement>
++  getCells: ({
++    element?: HTMLElement
++}) => Array<HTMLElement>
++  getGridlist: () => HTMLElement
++  getRows: () => Array<HTMLElement>
++  getSelectedRows: () => Array<HTMLElement>
+   setInteractionType: (UserOpts['interactionType']) => void
+   toggleRowSelection: (GridListToggleRowOpts) => Promise<void>
+   triggerRowAction: (GridListRowActionOpts) => Promise<void>
+ }
+```
+
+
+#### /@react-aria/test-utils:ListBoxTester
+```diff
+ ListBoxTester {
+   constructor: (ListBoxTesterOpts) => void
+   findOption: ({
+-    optionIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  listbox: HTMLElement
+-  options: ({
++  getListbox: () => HTMLElement
++  getOptions: ({
+     element?: HTMLElement
+ }) => Array<HTMLElement>
+-  sections: Array<HTMLElement>
+-  selectedOptions: Array<HTMLElement>
++  getSections: () => Array<HTMLElement>
++  getSelectedOptions: () => Array<HTMLElement>
+   setInteractionType: (UserOpts['interactionType']) => void
+   toggleOptionSelection: (ListBoxToggleOptionOpts) => Promise<void>
+   triggerOptionAction: (ListBoxOptionActionOpts) => Promise<void>
+ }
+```
+
+
+#### /@react-aria/test-utils:MenuTester
+```diff
+ MenuTester {
+   close: () => Promise<void>
+   constructor: (MenuTesterOpts) => void
+   findOption: ({
+-    optionIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  menu: HTMLElement | null
+-  open: (MenuOpenOpts) => Promise<void>
+-  openSubmenu: (MenuOpenSubmenuOpts) => Promise<MenuTester | null>
+-  options: ({
++  getMenu: () => HTMLElement | null
++  getOptions: ({
+     element?: HTMLElement
+ }) => Array<HTMLElement>
+-  sections: Array<HTMLElement>
+-  selectOption: (MenuSelectOpts) => Promise<void>
++  getSections: () => Array<HTMLElement>
++  getSubmenuTriggers: () => Array<HTMLElement>
++  getTrigger: () => HTMLElement
++  open: (MenuOpenOpts) => Promise<void>
++  openSubmenu: (MenuOpenSubmenuOpts) => Promise<MenuTester>
+   setInteractionType: (UserOpts['interactionType']) => void
+-  submenuTriggers: Array<HTMLElement>
+-  trigger: HTMLElement
++  toggleOptionSelection: (MenuSelectOpts) => Promise<void>
+ }
+```
+
+
+#### /@react-aria/test-utils:RadioGroupTester
+```diff
+ RadioGroupTester {
+   constructor: (RadioGroupTesterOpts) => void
+   findRadio: ({
+-    radioIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  radiogroup: HTMLElement
+-  radios: Array<HTMLElement>
+-  selectedRadio: HTMLElement | null
++  getRadioGroup: () => HTMLElement
++  getRadios: () => Array<HTMLElement>
++  getSelectedRadio: () => HTMLElement | null
+   setInteractionType: (UserOpts['interactionType']) => void
+   triggerRadio: (TriggerRadioOptions) => Promise<void>
+ }
+```
+
+
+#### /@react-aria/test-utils:SelectTester
+```diff
+ SelectTester {
+   close: () => Promise<void>
+   constructor: (SelectTesterOpts) => void
+   findOption: ({
+-    optionIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  listbox: HTMLElement | null
+-  open: (SelectOpenOpts) => Promise<void>
+-  options: ({
++  getListbox: () => HTMLElement | null
++  getOptions: ({
+     element?: HTMLElement
+ }) => Array<HTMLElement>
+-  sections: Array<HTMLElement>
+-  selectOption: (SelectTriggerOptionOpts) => Promise<void>
++  getSections: () => Array<HTMLElement>
++  getTrigger: () => HTMLElement
++  open: (SelectOpenOpts) => Promise<void>
+   setInteractionType: (UserOpts['interactionType']) => void
+-  trigger: HTMLElement
++  toggleOptionSelection: (SelectTriggerOptionOpts) => Promise<void>
+ }
+```
+
+
+#### /@react-aria/test-utils:TableTester
+```diff
+ TableTester {
+-  cells: ({
+-    element?: HTMLElement
+-}) => Array<HTMLElement>
+-  columns: Array<HTMLElement>
+   constructor: (TableTesterOpts) => void
+   findCell: ({
+     text: string
+ }) => HTMLElement
+   findRow: ({
+-    rowIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  rowGroups: Array<HTMLElement>
+-  rowHeaders: Array<HTMLElement>
+-  rows: Array<HTMLElement>
+-  selectedRows: Array<HTMLElement>
++  getCells: ({
++    element?: HTMLElement
++}) => Array<HTMLElement>
++  getColumns: () => Array<HTMLElement>
++  getFooterRows: () => Array<HTMLElement>
++  getRowGroups: () => Array<HTMLElement>
++  getRowHeaders: () => Array<HTMLElement>
++  getRows: ({
++    element?: HTMLElement
++}) => Array<HTMLElement>
++  getSelectedRows: () => Array<HTMLElement>
++  getTable: () => HTMLElement
+   setInteractionType: (UserOpts['interactionType']) => void
+-  table: HTMLElement
+   toggleRowExpansion: (TableToggleExpansionOpts) => Promise<void>
+   toggleRowSelection: (TableToggleRowOpts) => Promise<void>
+   toggleSelectAll: ({
+     interactionType?: UserOpts['interactionType']
+   toggleSort: (TableToggleSortOpts) => Promise<void>
+   triggerColumnHeaderAction: (TableColumnHeaderActionOpts) => Promise<void>
+   triggerRowAction: (TableRowActionOpts) => Promise<void>
+ }
+```
+
+
+#### /@react-aria/test-utils:TabsTester
+```diff
+ TabsTester {
+-  activeTabpanel: HTMLElement | null
+   constructor: (TabsTesterOpts) => void
+   findTab: ({
+-    tabIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  selectedTab: HTMLElement | null
++  getActiveTabpanel: () => HTMLElement | null
++  getSelectedTab: () => HTMLElement | null
++  getTablist: () => HTMLElement
++  getTabpanels: () => Array<HTMLElement>
++  getTabs: () => Array<HTMLElement>
+   setInteractionType: (UserOpts['interactionType']) => void
+-  tablist: HTMLElement
+-  tabpanels: Array<HTMLElement>
+-  tabs: Array<HTMLElement>
+   triggerTab: (TriggerTabOptions) => Promise<void>
+ }
+```
+
+
+#### /@react-aria/test-utils:TreeTester
+```diff
+ TreeTester {
+-  cells: ({
+-    element?: HTMLElement
+-}) => Array<HTMLElement>
+   constructor: (TreeTesterOpts) => void
+   findRow: ({
+-    rowIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  rows: Array<HTMLElement>
+-  selectedRows: Array<HTMLElement>
++  getCells: ({
++    element?: HTMLElement
++}) => Array<HTMLElement>
++  getRows: () => Array<HTMLElement>
++  getSelectedRows: () => Array<HTMLElement>
++  getTree: () => HTMLElement
+   setInteractionType: (UserOpts['interactionType']) => void
+   toggleRowExpansion: (TreeToggleExpansionOpts) => Promise<void>
+   toggleRowSelection: (TreeToggleRowOpts) => Promise<void>
+-  tree: HTMLElement
+   triggerRowAction: (TreeRowActionOpts) => Promise<void>
+ }
+```
+
+-----------------------------------
+
+
+#### /@react-spectrum/s2:ActionMenu
+```diff
+-ActionMenu <T extends {}> {
++ActionMenu <T> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   align?: 'start' | 'end' = 'start'
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean
+   children: ReactNode | (T) => ReactNode
+   defaultOpen?: boolean
+   direction?: 'bottom' | 'top' | 'left' | 'right' | 'start' | 'end' = 'bottom'
+   disabledKeys?: Iterable<Key>
+   id?: string
+   isDisabled?: boolean
+   isOpen?: boolean
+   isQuiet?: boolean
+   items?: Iterable<T>
+   menuSize?: 'S' | 'M' | 'L' | 'XL' = 'M'
+   onAction?: (Key) => void
+   onOpenChange?: (boolean) => void
+   shouldCloseOnSelect?: boolean
+   shouldFlip?: boolean = true
+   size?: 'XS' | 'S' | 'M' | 'L' | 'XL' = 'M'
+   styles?: StylesProp
+ }
+```
+
+
+#### /@react-spectrum/s2:Breadcrumbs
+```diff
+-Breadcrumbs <T extends {}> {
++Breadcrumbs <T> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+-  children: ReactNode | ({}) => ReactNode
++  children: ReactNode | (T) => ReactNode
+   dependencies?: ReadonlyArray<any>
+   id?: string
+   isDisabled?: boolean
+   items?: Iterable<T>
+   size?: 'M' | 'L' = 'M'
+   slot?: string | null
+   styles?: StylesProp
+ }
+```
+
+
+#### /@react-spectrum/s2:CardView
+```diff
+-CardView <T extends {}> {
++CardView <T> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+   children?: ReactNode | (T) => ReactNode
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   density?: 'compact' | 'regular' | 'spacious' = 'regular'
+   dependencies?: ReadonlyArray<any>
+   disabledBehavior?: DisabledBehavior = 'all'
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   disallowTypeAhead?: boolean = false
+   dragAndDropHooks?: DragAndDropHooks<NoInfer<T>>
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   id?: string
+   items?: Iterable<T>
+   layout?: 'grid' | 'waterfall' = 'grid'
+   loadingState?: LoadingState
+   onAction?: (Key) => void
+   onLoadMore?: () => void
+   onSelectionChange?: (Selection) => void
+   orientation?: Orientation = 'vertical'
+   renderActionBar?: ('all' | Set<Key>) => ReactElement
+   renderEmptyState?: (GridListRenderProps) => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   selectionStyle?: 'checkbox' | 'highlight' = 'checkbox'
+   shouldSelectOnPressUp?: boolean
+   size?: 'XS' | 'S' | 'M' | 'L' | 'XL' = 'M'
+   slot?: string | null
+   styles?: StylesPropWithHeight
+   variant?: 'primary' | 'secondary' | 'tertiary' | 'quiet' = 'primary'
+ }
+```
+
+
+-ComboBox <T extends {}> {
++ComboBox <T> {
+-  children: ReactNode | ({}) => ReactNode
++  children: ReactNode | (T) => ReactNode
+#### /@react-spectrum/s2:ComboBoxSection
+```diff
+-ComboBoxSection <T extends {}> {
++ComboBoxSection <T> {
+   aria-label?: string
+   children?: ReactNode | (T) => ReactElement
+   dependencies?: ReadonlyArray<any>
+   items?: Iterable<T>
+   value?: T
+ }
+```
+
+
+-ListView <T extends {}> {
++ListView <T> {
+-  children: ReactNode | ({}) => ReactNode
++  children: ReactNode | (T) => ReactNode
+#### /@react-spectrum/s2:Menu
+```diff
+-Menu <T extends {}> {
++Menu <T> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+-  children: ReactNode | ({}) => ReactNode
++  children: ReactNode | (T) => ReactNode
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   id?: string
+   items?: Iterable<T>
+   onAction?: (Key) => void
+   onClose?: () => void
+   onSelectionChange?: (Selection) => void
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: SelectionMode
+   shouldCloseOnSelect?: boolean
+   shouldFocusWrap?: boolean
+   size?: 'S' | 'M' | 'L' | 'XL' = 'M'
+   slot?: string | null
+   styles?: StylesProp
+ }
+```
+
+
+-MenuSection <T extends {}> {
++MenuSection <T> {
+#### /@react-spectrum/s2:Picker
+```diff
+-Picker <M extends SelectionMode = 'single', T extends {}> {
++Picker <M extends SelectionMode = 'single', T> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   align?: 'start' | 'end' = 'start'
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoComplete?: string
+   autoFocus?: boolean
+-  children: ReactNode | ({}) => ReactNode
++  children: ReactNode | (T) => ReactNode
+   contextualHelp?: ReactNode
+   defaultOpen?: boolean
+   defaultValue?: ValueType<SelectionMode>
+   dependencies?: ReadonlyArray<any>
+   description?: ReactNode
+   direction?: 'bottom' | 'top' = 'bottom'
+   disabledKeys?: Iterable<Key>
+   errorMessage?: ReactNode | (ValidationResult) => ReactNode
+   excludeFromTabOrder?: boolean
+   form?: string
+   id?: string
+   isDisabled?: boolean
+   isInvalid?: boolean
+   isOpen?: boolean
+   isQuiet?: boolean
+   isRequired?: boolean
+   items?: Iterable<T>
+   label?: ReactNode
+   labelAlign?: Alignment = 'start'
+   labelPosition?: LabelPosition = 'top'
+   loadingState?: LoadingState
+   menuWidth?: number
+   name?: string
+   necessityIndicator?: NecessityIndicator = 'icon'
+   onBlur?: (FocusEvent<Target>) => void
+   onChange?: (ChangeValueType<SelectionMode>) => void
+   onFocus?: (FocusEvent<Target>) => void
+   onFocusChange?: (boolean) => void
+   onKeyDown?: (KeyboardEvent) => void
+   onKeyUp?: (KeyboardEvent) => void
+   onLoadMore?: () => any
+   onOpenChange?: (boolean) => void
+   placeholder?: string = 'Select an item' (localized)
+-  renderValue?: (Array<{}>) => ReactNode
++  renderValue?: (Array<T>) => ReactNode
+   selectionMode?: SelectionMode = 'single'
+   shouldCloseOnSelect?: boolean
+   shouldFlip?: boolean = true
+   size?: 'S' | 'M' | 'L' | 'XL' = 'M'
+   styles?: StylesProp
+   validate?: (ValidationType<SelectionMode>) => ValidationError | boolean | null | undefined
+   validationBehavior?: 'native' | 'aria' = 'native'
+   value?: ValueType<SelectionMode>
+ }
+```
+
+
+#### /@react-spectrum/s2:PickerSection
+```diff
+-PickerSection <T extends {}> {
++PickerSection <T> {
+   aria-label?: string
+   children?: ReactNode | (T) => ReactElement
+   dependencies?: ReadonlyArray<any>
+   items?: Iterable<T>
+   value?: T
+ }
+```
+
+
+#### /@react-spectrum/s2:SelectBoxGroup
+```diff
+-SelectBoxGroup <T extends {}> {
++SelectBoxGroup <T> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoFocus?: boolean | FocusStrategy
+-  children: ReactNode | ({}) => ReactNode
++  children: ReactNode | (T) => ReactNode
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   isDisabled?: boolean
+   items?: Iterable<T>
+   onBlur?: (FocusEvent<Target>) => void
+   onFocus?: (FocusEvent<Target>) => void
+   onFocusChange?: (boolean) => void
+   onSelectionChange?: (Selection) => void
+   orientation?: Orientation = 'vertical'
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionMode?: 'single' | 'multiple' = 'single'
+   slot?: string | null
+   styles?: StylesProp
+ }
+```
+
+
+   loadingState?: LoadingState
++  selectionStyle?: 'checkbox' | 'highlight' = 'checkbox'
+ }
+```
+
+
+#### /@react-spectrum/s2:TableHeader
+```diff
+-TableHeader <T extends {}> {
++TableHeader <T> {
+   children?: ReactNode | (T) => ReactElement
+   columns?: Iterable<T>
+   dependencies?: ReadonlyArray<any>
+```
+
+
+#### /@react-spectrum/s2:TableBody
+```diff
+-TableBody <T extends {}> {
++TableBody <T> {
+   children?: ReactNode | (T) => ReactNode
+   dependencies?: ReadonlyArray<any>
+   items?: Iterable<T>
+ }
+```
+
+
+#### /@react-spectrum/s2:Row
+```diff
+-Row <T extends {}> {
++Row <T> {
+   children?: ReactNode | (T) => ReactElement
+   columns?: Iterable<T>
+   dependencies?: ReadonlyArray<any>
+   href?: Href
+   hrefLang?: string
+   id?: Key
+   isDisabled?: boolean
+   onAction?: () => void
+   ping?: string
+   referrerPolicy?: HTMLAttributeReferrerPolicy
+   rel?: string
+   routerOptions?: RouterOptions
+   target?: HTMLAttributeAnchorTarget
+   textValue?: string
+ }
+```
+
+
+#### /@react-spectrum/s2:TabList
+```diff
+-TabList <T extends {}> {
++TabList <T> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-details?: string
+-  children: ReactNode | ({}) => ReactNode
++  children: ReactNode | (T) => ReactNode
+   dependencies?: ReadonlyArray<any>
+   items?: Iterable<T>
+   styles?: StylesProp
+ }
+```
+
+
+#### /@react-spectrum/s2:TagGroup
+```diff
+-TagGroup <T extends {}> {
++TagGroup <T> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   aria-describedby?: string
+   aria-label?: string
+   aria-labelledby?: string
+   children?: ReactNode | (T) => ReactNode
+   contextualHelp?: ReactNode
+   defaultSelectedKeys?: 'all' | Iterable<Key>
+   description?: ReactNode
+   disabledKeys?: Iterable<Key>
+   disallowEmptySelection?: boolean
+   errorMessage?: ReactNode
+   escapeKeyBehavior?: 'clearSelection' | 'none' = 'clearSelection'
+   groupActionLabel?: string
+   id?: string
+   isEmphasized?: boolean
+   isInvalid?: boolean
+   items?: Iterable<T>
+   label?: ReactNode
+   labelAlign?: Alignment = 'start'
+   labelPosition?: LabelPosition = 'top'
+   maxRows?: number
+   onAction?: (Key) => void
+   onGroupAction?: () => void
+   onRemove?: (Set<Key>) => void
+   onSelectionChange?: (Selection) => void
+   renderEmptyState?: () => ReactNode
+   selectedKeys?: 'all' | Iterable<Key>
+   selectionBehavior?: SelectionBehavior = 'toggle'
+   selectionMode?: SelectionMode
+   shouldSelectOnPressUp?: boolean
+   size?: 'S' | 'M' | 'L' = 'M'
+   slot?: string | null
+   styles?: StylesProp
+-TreeView <T extends {}> {
++TreeView <T> {
+#### /@react-spectrum/s2:Autocomplete
+```diff
+-Autocomplete <T extends {}> {
++Autocomplete <T> {
+   children: ReactNode
+   defaultInputValue?: string
+   disableAutoFocusFirst?: boolean = false
+   disableVirtualFocus?: boolean = false
+-  filter?: (string, string, Node<{}>) => boolean
++  filter?: (string, string, Node<T>) => boolean
+   inputValue?: string
+   onInputChange?: (string) => void
+   slot?: string | null
+ }
+```
+
+
+#### /@react-spectrum/s2:Collection
+```diff
+-Collection <T extends {}> {
++Collection <T> {
+   addIdAndValue?: boolean
+-  children?: ReactNode | ({}) => ReactNode
++  children?: ReactNode | (T) => ReactNode
+   dependencies?: ReadonlyArray<any>
+   idScope?: Key
+-  items?: Iterable<{}>
++  items?: Iterable<T>
+ }
+```
+
+
+-ComboBoxProps <T extends {}> {
++ComboBoxProps <T> {
+-  children: ReactNode | ({}) => ReactNode
++  children: ReactNode | (T) => ReactNode
+#### /@react-spectrum/s2:ComboBoxSectionProps
+```diff
+-ComboBoxSectionProps <T extends {}> {
++ComboBoxSectionProps <T> {
+   aria-label?: string
+   children?: ReactNode | (T) => ReactElement
+   dependencies?: ReadonlyArray<any>
+   items?: Iterable<T>
+   value?: T
+ }
+```
+
+
+-MenuSectionProps <T extends {}> {
++MenuSectionProps <T> {
+#### /@react-spectrum/s2:PickerProps
+```diff
+-PickerProps <M extends SelectionMode = 'single', T extends {}> {
++PickerProps <M extends SelectionMode = 'single', T> {
+   UNSAFE_className?: UnsafeClassName
+   UNSAFE_style?: CSSProperties
+   align?: 'start' | 'end' = 'start'
+   aria-describedby?: string
+   aria-details?: string
+   aria-label?: string
+   aria-labelledby?: string
+   autoComplete?: string
+   autoFocus?: boolean
+-  children: ReactNode | ({}) => ReactNode
++  children: ReactNode | (T) => ReactNode
+   contextualHelp?: ReactNode
+   defaultOpen?: boolean
+   defaultValue?: ValueType<SelectionMode>
+   dependencies?: ReadonlyArray<any>
+   description?: ReactNode
+   direction?: 'bottom' | 'top' = 'bottom'
+   disabledKeys?: Iterable<Key>
+   errorMessage?: ReactNode | (ValidationResult) => ReactNode
+   excludeFromTabOrder?: boolean
+   form?: string
+   id?: string
+   isDisabled?: boolean
+   isInvalid?: boolean
+   isOpen?: boolean
+   isQuiet?: boolean
+   isRequired?: boolean
+   items?: Iterable<T>
+   label?: ReactNode
+   labelAlign?: Alignment = 'start'
+   labelPosition?: LabelPosition = 'top'
+   loadingState?: LoadingState
+   menuWidth?: number
+   name?: string
+   necessityIndicator?: NecessityIndicator = 'icon'
+   onBlur?: (FocusEvent<Target>) => void
+   onChange?: (ChangeValueType<SelectionMode>) => void
+   onFocus?: (FocusEvent<Target>) => void
+   onFocusChange?: (boolean) => void
+   onKeyDown?: (KeyboardEvent) => void
+   onKeyUp?: (KeyboardEvent) => void
+   onLoadMore?: () => any
+   onOpenChange?: (boolean) => void
+   placeholder?: string = 'Select an item' (localized)
+-  renderValue?: (Array<{}>) => ReactNode
++  renderValue?: (Array<T>) => ReactNode
+   selectionMode?: SelectionMode = 'single'
+   shouldCloseOnSelect?: boolean
+   shouldFlip?: boolean = true
+   size?: 'S' | 'M' | 'L' | 'XL' = 'M'
+   styles?: StylesProp
+   validate?: (ValidationType<SelectionMode>) => ValidationError | boolean | null | undefined
+   validationBehavior?: 'native' | 'aria' = 'native'
+   value?: ValueType<SelectionMode>
+ }
+```
+
+
+#### /@react-spectrum/s2:PickerSectionProps
+```diff
+-PickerSectionProps <T extends {}> {
++PickerSectionProps <T> {
+   aria-label?: string
+   children?: ReactNode | (T) => ReactElement
+   dependencies?: ReadonlyArray<any>
+   items?: Iterable<T>
+   value?: T
+ }
+```
+
+
+   loadingState?: LoadingState
++  selectionStyle?: 'checkbox' | 'highlight' = 'checkbox'
++TableFooter <T> {
+### @react-spectrum/test-utils
+
+#### /@react-spectrum/test-utils:CheckboxGroupTester
+```diff
+ CheckboxGroupTester {
+-  checkboxes: Array<HTMLElement>
+-  checkboxgroup: HTMLElement
+   constructor: (CheckboxGroupTesterOpts) => void
+   findCheckbox: ({
+-    checkboxIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  selectedCheckboxes: Array<HTMLElement>
++  getCheckboxGroup: () => HTMLElement
++  getCheckboxes: () => Array<HTMLElement>
++  getSelectedCheckboxes: () => Array<HTMLElement>
+   setInteractionType: (UserOpts['interactionType']) => void
+   toggleCheckbox: (TriggerCheckboxOptions) => Promise<void>
+ }
+```
+
+
+#### /@react-spectrum/test-utils:ComboBoxTester
+```diff
+ ComboBoxTester {
+   close: () => Promise<void>
+-  combobox: HTMLElement
+   constructor: (ComboBoxTesterOpts) => void
+   findOption: ({
+-    optionIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  focusedOption: HTMLElement | null
+-  listbox: HTMLElement | null
+-  open: (ComboBoxOpenOpts) => Promise<void>
+-  options: ({
++  getCombobox: () => HTMLElement
++  getFocusedOption: () => HTMLElement | null
++  getListbox: () => HTMLElement | null
++  getOptions: ({
+     element?: HTMLElement
+ }) => Array<HTMLElement>
+-  sections: Array<HTMLElement>
+-  selectOption: (ComboBoxSelectOpts) => Promise<void>
++  getSections: () => Array<HTMLElement>
++  getTrigger: () => HTMLElement
++  open: (ComboBoxOpenOpts) => Promise<void>
+   setInteractionType: (UserOpts['interactionType']) => void
+-  trigger: HTMLElement
++  toggleOptionSelection: (ComboBoxSelectOpts) => Promise<void>
+ }
+```
+
+
+#### /@react-spectrum/test-utils:DialogTester
+```diff
+ DialogTester {
+   close: () => Promise<void>
+   constructor: (DialogTesterOpts) => void
+-  dialog: HTMLElement | null
++  getDialog: () => HTMLElement | null
++  getTrigger: () => HTMLElement
+   open: (DialogOpenOpts) => Promise<void>
+   setInteractionType: (UserOpts['interactionType']) => void
+-  trigger: HTMLElement
+ }
+```
+
+
+#### /@react-spectrum/test-utils:GridListTester
+```diff
+ GridListTester {
+-  cells: ({
+-    element?: HTMLElement
+-}) => Array<HTMLElement>
+   constructor: (GridListTesterOpts) => void
+   findRow: ({
+-    rowIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  gridlist: HTMLElement
+-  rows: Array<HTMLElement>
+-  selectedRows: Array<HTMLElement>
++  getCells: ({
++    element?: HTMLElement
++}) => Array<HTMLElement>
++  getGridlist: () => HTMLElement
++  getRows: () => Array<HTMLElement>
++  getSelectedRows: () => Array<HTMLElement>
+   setInteractionType: (UserOpts['interactionType']) => void
+   toggleRowSelection: (GridListToggleRowOpts) => Promise<void>
+   triggerRowAction: (GridListRowActionOpts) => Promise<void>
+ }
+```
+
+
+#### /@react-spectrum/test-utils:ListBoxTester
+```diff
+ ListBoxTester {
+   constructor: (ListBoxTesterOpts) => void
+   findOption: ({
+-    optionIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  listbox: HTMLElement
+-  options: ({
++  getListbox: () => HTMLElement
++  getOptions: ({
+     element?: HTMLElement
+ }) => Array<HTMLElement>
+-  sections: Array<HTMLElement>
+-  selectedOptions: Array<HTMLElement>
++  getSections: () => Array<HTMLElement>
++  getSelectedOptions: () => Array<HTMLElement>
+   setInteractionType: (UserOpts['interactionType']) => void
+   toggleOptionSelection: (ListBoxToggleOptionOpts) => Promise<void>
+   triggerOptionAction: (ListBoxOptionActionOpts) => Promise<void>
+ }
+```
+
+
+#### /@react-spectrum/test-utils:MenuTester
+```diff
+ MenuTester {
+   close: () => Promise<void>
+   constructor: (MenuTesterOpts) => void
+   findOption: ({
+-    optionIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  menu: HTMLElement | null
+-  open: (MenuOpenOpts) => Promise<void>
+-  openSubmenu: (MenuOpenSubmenuOpts) => Promise<MenuTester | null>
+-  options: ({
++  getMenu: () => HTMLElement | null
++  getOptions: ({
+     element?: HTMLElement
+ }) => Array<HTMLElement>
+-  sections: Array<HTMLElement>
+-  selectOption: (MenuSelectOpts) => Promise<void>
++  getSections: () => Array<HTMLElement>
++  getSubmenuTriggers: () => Array<HTMLElement>
++  getTrigger: () => HTMLElement
++  open: (MenuOpenOpts) => Promise<void>
++  openSubmenu: (MenuOpenSubmenuOpts) => Promise<MenuTester>
+   setInteractionType: (UserOpts['interactionType']) => void
+-  submenuTriggers: Array<HTMLElement>
+-  trigger: HTMLElement
++  toggleOptionSelection: (MenuSelectOpts) => Promise<void>
+ }
+```
+
+
+#### /@react-spectrum/test-utils:RadioGroupTester
+```diff
+ RadioGroupTester {
+   constructor: (RadioGroupTesterOpts) => void
+   findRadio: ({
+-    radioIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  radiogroup: HTMLElement
+-  radios: Array<HTMLElement>
+-  selectedRadio: HTMLElement | null
++  getRadioGroup: () => HTMLElement
++  getRadios: () => Array<HTMLElement>
++  getSelectedRadio: () => HTMLElement | null
+   setInteractionType: (UserOpts['interactionType']) => void
+   triggerRadio: (TriggerRadioOptions) => Promise<void>
+ }
+```
+
+
+#### /@react-spectrum/test-utils:SelectTester
+```diff
+ SelectTester {
+   close: () => Promise<void>
+   constructor: (SelectTesterOpts) => void
+   findOption: ({
+-    optionIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  listbox: HTMLElement | null
+-  open: (SelectOpenOpts) => Promise<void>
+-  options: ({
++  getListbox: () => HTMLElement | null
++  getOptions: ({
+     element?: HTMLElement
+ }) => Array<HTMLElement>
+-  sections: Array<HTMLElement>
+-  selectOption: (SelectTriggerOptionOpts) => Promise<void>
++  getSections: () => Array<HTMLElement>
++  getTrigger: () => HTMLElement
++  open: (SelectOpenOpts) => Promise<void>
+   setInteractionType: (UserOpts['interactionType']) => void
+-  trigger: HTMLElement
++  toggleOptionSelection: (SelectTriggerOptionOpts) => Promise<void>
+ }
+```
+
+
+#### /@react-spectrum/test-utils:TableTester
+```diff
+ TableTester {
+-  cells: ({
+-    element?: HTMLElement
+-}) => Array<HTMLElement>
+-  columns: Array<HTMLElement>
+   constructor: (TableTesterOpts) => void
+   findCell: ({
+     text: string
+ }) => HTMLElement
+   findRow: ({
+-    rowIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  rowGroups: Array<HTMLElement>
+-  rowHeaders: Array<HTMLElement>
+-  rows: Array<HTMLElement>
+-  selectedRows: Array<HTMLElement>
++  getCells: ({
++    element?: HTMLElement
++}) => Array<HTMLElement>
++  getColumns: () => Array<HTMLElement>
++  getFooterRows: () => Array<HTMLElement>
++  getRowGroups: () => Array<HTMLElement>
++  getRowHeaders: () => Array<HTMLElement>
++  getRows: ({
++    element?: HTMLElement
++}) => Array<HTMLElement>
++  getSelectedRows: () => Array<HTMLElement>
++  getTable: () => HTMLElement
+   setInteractionType: (UserOpts['interactionType']) => void
+-  table: HTMLElement
+   toggleRowExpansion: (TableToggleExpansionOpts) => Promise<void>
+   toggleRowSelection: (TableToggleRowOpts) => Promise<void>
+   toggleSelectAll: ({
+     interactionType?: UserOpts['interactionType']
+   toggleSort: (TableToggleSortOpts) => Promise<void>
+   triggerColumnHeaderAction: (TableColumnHeaderActionOpts) => Promise<void>
+   triggerRowAction: (TableRowActionOpts) => Promise<void>
+ }
+```
+
+
+#### /@react-spectrum/test-utils:TabsTester
+```diff
+ TabsTester {
+-  activeTabpanel: HTMLElement | null
+   constructor: (TabsTesterOpts) => void
+   findTab: ({
+-    tabIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  selectedTab: HTMLElement | null
++  getActiveTabpanel: () => HTMLElement | null
++  getSelectedTab: () => HTMLElement | null
++  getTablist: () => HTMLElement
++  getTabpanels: () => Array<HTMLElement>
++  getTabs: () => Array<HTMLElement>
+   setInteractionType: (UserOpts['interactionType']) => void
+-  tablist: HTMLElement
+-  tabpanels: Array<HTMLElement>
+-  tabs: Array<HTMLElement>
+   triggerTab: (TriggerTabOptions) => Promise<void>
+ }
+```
+
+
+#### /@react-spectrum/test-utils:TreeTester
+```diff
+ TreeTester {
+-  cells: ({
+-    element?: HTMLElement
+-}) => Array<HTMLElement>
+   constructor: (TreeTesterOpts) => void
+   findRow: ({
+-    rowIndexOrText: number | string
++    indexOrText: number | string
+ }) => HTMLElement
+-  rows: Array<HTMLElement>
+-  selectedRows: Array<HTMLElement>
++  getCells: ({
++    element?: HTMLElement
++}) => Array<HTMLElement>
++  getRows: () => Array<HTMLElement>
++  getSelectedRows: () => Array<HTMLElement>
++  getTree: () => HTMLElement
+   setInteractionType: (UserOpts['interactionType']) => void
+   toggleRowExpansion: (TreeToggleExpansionOpts) => Promise<void>
+   toggleRowSelection: (TreeToggleRowOpts) => Promise<void>
+-  tree: HTMLElement
+   triggerRowAction: (TreeRowActionOpts) => Promise<void>
+ }
+```
+
+-----------------------------------
+
+
+### @react-spectrum/tree
+
+#### /@react-spectrum/tree:Collection
+```diff
+-Collection <T extends {}> {
++Collection <T> {
+   addIdAndValue?: boolean
+-  children?: ReactNode | ({}) => ReactNode
++  children?: ReactNode | (T) => ReactNode
+   dependencies?: ReadonlyArray<any>
+   idScope?: Key
+-  items?: Iterable<{}>
++  items?: Iterable<T>
+ }
+```
+
+-----------------------------------
+
+
+### @react-stately/collections
+
+#### /@react-stately/collections:useCollection
+```diff
+-useCollection <C extends Collection<Node<T>> = Collection<Node<T>>, T extends {}> {
++useCollection <C extends Collection<Node<T>> = Collection<Node<T>>, T> {
+   props: CollectionOptions<T, C>
+   factory: CollectionFactory<T, C>
+   context?: unknown
+ }
+```
+
+-----------------------------------
+
+
+### @react-stately/combobox
+
+#### /@react-stately/combobox:useComboBoxState
+```diff
+-useComboBoxState <M extends SelectionMode = 'single', T extends {}> {
++useComboBoxState <M extends SelectionMode = 'single', T> {
+   props: ComboBoxStateOptions<T, M>
+   returnVal: undefined
+ }
+```
+
+-----------------------------------
+
+
+### @react-stately/list
+
+#### /@react-stately/list:useListState
+```diff
+-useListState <T extends {}> {
++useListState <T> {
+   props: ListProps<T>
+   returnVal: undefined
+ }
+```
+
+
+#### /@react-stately/list:UNSTABLE_useFilteredListState
+```diff
+-UNSTABLE_useFilteredListState <T extends {}> {
++UNSTABLE_useFilteredListState <T> {
+   state: ListState<T>
+   filterFn: (string, Node<T>) => boolean | null | undefined
+   returnVal: undefined
+```
+
+-----------------------------------
+
+
+### @react-stately/select
+
+#### /@react-stately/select:useSelectState
+```diff
+-useSelectState <M extends SelectionMode = 'single', T extends {}> {
++useSelectState <M extends SelectionMode = 'single', T> {
+   props: SelectStateOptions<T, M>
+   returnVal: undefined
+ }
+```
+
+-----------------------------------
+
+
+ }
+```
+
+-----------------------------------
+
+
+### @react-stately/tree
+
+#### /@react-stately/tree:useTreeState
+```diff
+-useTreeState <T extends {}> {
++useTreeState <T> {
+   props: TreeProps<T>
+   returnVal: undefined
+
+=== API CHANGES RELEASED SINCE LAST WEEK (were in last week's diff, now gone) ===
+ MenuSection <T extends {}> {
+   children?: ReactNode | ({}) => ReactElement
+   items?: Iterable<{}>
+   value?: {}
+ Row <T extends {}> {
+   children?: ReactNode | ({}) => ReactElement
+   columns?: Iterable<{}>
+   value?: {}
++TableFooter <T extends {}> {
+ ComboBox <T extends {}> {
+   children: ReactNode | ({}) => ReactNode
+ ListView <T extends {}> {
+   children: ReactNode | ({}) => ReactNode
+ MenuSection <T extends {}> {
+   treeColumn?: Key
+ TreeView <T extends {}> {
+ ComboBoxProps <T extends {}> {
+   children: ReactNode | ({}) => ReactNode
+ MenuSectionProps <T extends {}> {
+   treeColumn?: Key
++TableFooter <T extends {}> {
++  renderDropIndicator?: (DropTarget) => JSX.Element
